@@ -29,14 +29,14 @@ const artists = artistNames.map((name,i)=>({
 
 /* === Albums list (visuels + quelques sources publiques du second code) === */
 const albums = [
-  { title:'Freestyle Pour Dieu', artist:'Synaï', image:'https://mir-s3-cdn-cf.behance.net/projects/max_808/dcb976220763907.Y3JvcCw0MTI4LDMyMjksODQ4LDA.png', audio:'https://hrzmagjjobctkfxayokt.supabase.co/storage/v1/object/public/sons/artiste%202/son2.mp3' },
-  { title:'Obsédé', artist:'NAN(Rap-Gospel)', image:'https://mir-s3-cdn-cf.behance.net/projects/max_808/aa3cc6234948753.Y3JvcCw2OTYsNTQ0LDAsMzU1.jpg', audio:'https://hrzmagjjobctkfxayokt.supabase.co/storage/v1/object/public/sons/artiste%201/son2.mp3' },
-  { title:'In God', artist:'Elihem', image:'https://mir-s3-cdn-cf.behance.net/projects/max_808/eeb832220671177.Y3JvcCwxMDA3LDc4OCwxOTcsMA.png', audio:'https://hrzmagjjobctkfxayokt.supabase.co/storage/v1/object/public/sons/artiste%203/son1.mp3' },
-  { title:'Sara 1', artist:'Sara', image:'https://mir-s3-cdn-cf.behance.net/projects/max_808/f7c5fd158248381.Y3JvcCwyNDcyLDE5MzQsNjczLDIyMA.png', audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3' },
-  { title:'Cendrillon', artist:'Kalynn', image:'https://mir-s3-cdn-cf.behance.net/projects/max_808/6fcad6197383229.Y3JvcCwyNzYxLDIxNjAsNjIyLDA.png', audio:'https://hrzmagjjobctkfxayokt.supabase.co/storage/v1/object/public/sons/artiste%205/son1.mp3' },
-  { title:'Melohim (Remix)', artist:'Melohim', image:'https://mir-s3-cdn-cf.behance.net/projects/max_808/ea22b0160624529.Y3JvcCwxNjY5LDEzMDUsMTE5LDE1Nw.png', audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3' },
-  { title:'Tiim 1', artist:'Tiim', image:'https://mir-s3-cdn-cf.behance.net/projects/max_808/6c20fc220690051.Y3JvcCw4OTQsNzAwLDI1Miww.png', audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3' },
-  { title:'Math 1', artist:'Math', image:'https://github.com/CX-Banger/cx-devdocs/blob/main/cover-album/one-way-jesus.jpg?raw=true', audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3' }
+  { title:'Freestyle Pour Dieu', artist:'Synaï', image:'https://i.pinimg.com/236x/2c/23/17/2c2317fb606f8dad772f8b2a63dc1b07.jpg', audio:'https://hrzmagjjobctkfxayokt.supabase.co/storage/v1/object/public/sons/artiste%202/son2.mp3' },
+  { title:'Obsédé', artist:'NAN(Rap-Gospel)', image:'https://i.pinimg.com/236x/2c/23/17/2c2317fb606f8dad772f8b2a63dc1b07.jpg', audio:'https://hrzmagjjobctkfxayokt.supabase.co/storage/v1/object/public/sons/artiste%201/son2.mp3' },
+  { title:'In God', artist:'Elihem', image:'https://i.pinimg.com/236x/2c/23/17/2c2317fb606f8dad772f8b2a63dc1b07.jpg', audio:'https://hrzmagjjobctkfxayokt.supabase.co/storage/v1/object/public/sons/artiste%203/son1.mp3' },
+  { title:'Sara 1', artist:'Sara', image:'https://i.pinimg.com/236x/2c/23/17/2c2317fb606f8dad772f8b2a63dc1b07.jpg', audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3' },
+  { title:'Cendrillon', artist:'Kalynn', image:'https://github.com/CX-Banger/profile-page-artiste/blob/main/assets/disque.jpg?raw=true', audio:'https://hrzmagjjobctkfxayokt.supabase.co/storage/v1/object/public/sons/artiste%205/son1.mp3' },
+  { title:'Melohim (Remix)', artist:'Melohim', image:'https://github.com/CX-Banger/profile-page-artiste/blob/main/assets/disque.jpg?raw=true', audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3' },
+  { title:'Tiim 1', artist:'Tiim', image:'https://github.com/CX-Banger/profile-page-artiste/blob/main/assets/disque.jpg?raw=true', audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3' },
+  { title:'Math 1', artist:'Math', image:'https://github.com/CX-Banger/profile-page-artiste/blob/main/assets/disque.jpg?raw=true', audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3' }
 ];
 
 /* === DOM refs === */
@@ -171,7 +171,7 @@ function renderFeatured(){
 function renderUpcoming(){
   upcomingDiv.innerHTML = `
     <div class="album-item">
-      <img src="https://mir-s3-cdn-cf.behance.net/projects/max_808/aa3cc6234948753.Y3JvcCw2OTYsNTQ0LDAsMzU1.jpg" alt="upcoming">
+      <img src="https://github.com/CX-Banger/profile-page-artiste/blob/main/assets/disque.jpg?raw=true" alt="upcoming">
       <div class="title">Nouvel Album — NAN</div>
       <div class="artist">Sortie 2025</div>
     </div>
