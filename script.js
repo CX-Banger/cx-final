@@ -171,7 +171,7 @@ function renderFeatured(){
 function renderUpcoming(){
   upcomingDiv.innerHTML = `
     <div class="album-item">
-      <img src="https://github.com/CX-Banger/profile-page-artiste/blob/main/assets/disque.jpg?raw=true" alt="upcoming">
+      <img src="https://github.com/CX-Banger/cx-devdocs/blob/main/cover-album/one-way-jesus.jpg?raw=true" alt="upcoming">
       <div class="title">Nouvel Album — NAN</div>
       <div class="artist">Sortie 2025</div>
     </div>
@@ -565,3 +565,4 @@ document.addEventListener('click', (e)=>{
     // handled by album item listeners already
   }
 });
+
