@@ -1,0 +1,567 @@
+/* ========= Fusion JS (artistes + albums + lecteur + playlists + recherche) ========= */
+
+/* === Données artistes (basées sur ton premier code) === */
+const artistNames = ['NAN', 'Synaï', 'Elihem', 'Sara', 'Eilynn', 'Melohim', 'Tiim', 'Math'];
+const trackTitles = [
+  ['Olala', 'Obsédé', 'Etoile', 'Parapluie', 'Love Story', 'Bande', 'Epitre Au Monde #1', 'Mieux', 'Alchimie', 'Compassion', 'Génant', 'Techiyá'],
+  ['YHWH', 'Freestyle Pour Dieu', 'Zinzin', 'Choisir Papa', 'Le Temps', 'Une Question...', 'Papa Yahweh ft Eilynn', 'Saisir les Bases', 'Dessin'],
+  ['In God', 'Visé', 'Chanson 3'],
+  ['Sara 1', 'Sara 2', 'Sara 3', 'Sara 4'],
+  ['Cendrillon', 'Kalynn 2'],
+  ['Melohim 1', 'Melohim 2', 'Melohim 3'],
+  ['Tiim 1', 'Tiim 2'],
+  ['Math 1', 'Math 2', 'Math 3', 'Math 4', 'Math 5']
+];
+
+const artists = artistNames.map((name,i)=>({
+  id:i+1,
+  name,
+  bio:`${name} `,
+  photo:`media/artistes/${i+1}.jpg`,  // photo de profil
+  tracks:trackTitles[i].map((title,j)=>({
+    id:`son${j+1}`,
+    title,
+    src:`media/artiste${i+1}/son${j+1}.mp3`,
+    cover:`media/artiste${i+1}/cover${j+1}.jpg` // cover du son
+  }))
+}));
+
+
+/* === Albums list (visuels + quelques sources publiques du second code) === */
+const albums = [
+  { title:'Freestyle Pour Dieu', artist:'Synaï', image:'https://mir-s3-cdn-cf.behance.net/projects/max_808/dcb976220763907.Y3JvcCw0MTI4LDMyMjksODQ4LDA.png', audio:'https://hrzmagjjobctkfxayokt.supabase.co/storage/v1/object/public/sons/artiste%202/son2.mp3' },
+  { title:'Obsédé', artist:'NAN(Rap-Gospel)', image:'https://mir-s3-cdn-cf.behance.net/projects/max_808/aa3cc6234948753.Y3JvcCw2OTYsNTQ0LDAsMzU1.jpg', audio:'https://hrzmagjjobctkfxayokt.supabase.co/storage/v1/object/public/sons/artiste%201/son2.mp3' },
+  { title:'In God', artist:'Elihem', image:'https://mir-s3-cdn-cf.behance.net/projects/max_808/eeb832220671177.Y3JvcCwxMDA3LDc4OCwxOTcsMA.png', audio:'https://hrzmagjjobctkfxayokt.supabase.co/storage/v1/object/public/sons/artiste%203/son1.mp3' },
+  { title:'Sara 1', artist:'Sara', image:'https://mir-s3-cdn-cf.behance.net/projects/max_808/f7c5fd158248381.Y3JvcCwyNDcyLDE5MzQsNjczLDIyMA.png', audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3' },
+  { title:'Cendrillon', artist:'Kalynn', image:'https://mir-s3-cdn-cf.behance.net/projects/max_808/6fcad6197383229.Y3JvcCwyNzYxLDIxNjAsNjIyLDA.png', audio:'https://hrzmagjjobctkfxayokt.supabase.co/storage/v1/object/public/sons/artiste%205/son1.mp3' },
+  { title:'Melohim (Remix)', artist:'Melohim', image:'https://mir-s3-cdn-cf.behance.net/projects/max_808/ea22b0160624529.Y3JvcCwxNjY5LDEzMDUsMTE5LDE1Nw.png', audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3' },
+  { title:'Tiim 1', artist:'Tiim', image:'https://mir-s3-cdn-cf.behance.net/projects/max_808/6c20fc220690051.Y3JvcCw4OTQsNzAwLDI1Miww.png', audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3' },
+  { title:'Math 1', artist:'Math', image:'https://github.com/CX-Banger/cx-devdocs/blob/main/cover-album/one-way-jesus.jpg?raw=true', audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3' }
+];
+
+/* === DOM refs === */
+const pages = document.querySelectorAll('.page');
+const navBtns = document.querySelectorAll('.nav-btn');
+const bottomBtns = document.querySelectorAll('.bottom-nav .bt');
+const artistsGrid = document.getElementById('artistsGrid');
+const featuredDiv = document.getElementById('featured');
+const upcomingDiv = document.getElementById('upcoming');
+const playlistListDiv = document.getElementById('playlistList');
+const playlistTracksDiv = document.getElementById('playlistTracks');
+const likedListDiv = document.getElementById('likedList');
+const searchInput = document.getElementById('searchInput');
+const searchResultsDiv = document.getElementById('searchResults');
+const headerSearch = document.getElementById('headerSearch');
+const newPlaylistNameInput = document.getElementById('newPlaylistName');
+const createPlaylistBtn = document.getElementById('createPlaylistBtn');
+
+/* Player refs */
+const audio = document.getElementById('audio');
+const playPauseBtn = document.getElementById('playPause');
+const prevBtn = document.getElementById('prevTrack');
+const nextBtn = document.getElementById('nextTrack');
+const playerTitle = document.getElementById('playerTitle');
+const playerArtist = document.getElementById('playerArtist');
+const playerThumb = document.getElementById('playerThumb');
+const progress = document.getElementById('progress');
+const currentTimeEl = document.getElementById('currentTime');
+const durationTimeEl = document.getElementById('durationTime');
+const volumeEl = document.getElementById('volume');
+const shuffleBtn = document.getElementById('shuffleBtn');
+const repeatBtn = document.getElementById('repeatBtn');
+const likeCurrentBtn = document.getElementById('likeCurrent');
+
+/* Modal refs */
+const artistModal = document.getElementById('artistModal');
+const modalName = document.getElementById('modalName');
+const modalBio = document.getElementById('modalBio');
+const modalTracks = document.getElementById('modalTracks');
+const modalClose = document.getElementById('modalClose');
+
+/* state */
+let userPlaylists = JSON.parse(localStorage.getItem('playlists') || '{}');
+let likedSongs = userPlaylists['Sons Likés'] || [];
+let playlist = []; // array of {src,title,artist,thumb}
+let currentIndex = 0;
+let isShuffle = false;
+let isRepeat = false;
+
+/* ===== Navigation ===== */
+function showPage(id){
+  pages.forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  // style nav active
+  navBtns.forEach(b=>b.classList.toggle('active', b.dataset.page === `page-${id}` || b.dataset.page===id));
+  bottomBtns.forEach(b=>b.classList.toggle('active', b.dataset.page === id));
+}
+navBtns.forEach(b=>{
+  b.addEventListener('click', ()=>{
+    const page = b.dataset.page.replace('page-','');
+    // pages are: home, playlists, liked, search, upcoming
+    if(page==='page-home') showPage('home'); else showPage(b.dataset.page.replace('page-',''));
+  });
+});
+bottomBtns.forEach(b=>{
+  b.addEventListener('click', ()=> showPage(b.dataset.page));
+});
+
+/* support header search trigger */
+headerSearch.addEventListener('input', e=>{
+  const q = e.target.value.trim();
+  if(q.length>=2){
+    showPage('search');
+    document.getElementById('searchInput').value = q;
+    doSearch(q);
+  }
+});
+
+/* ===== Render artistes ===== */
+function renderArtists(){
+  artistsGrid.innerHTML='';
+  artists.forEach(a=>{
+    const card = document.createElement('div');
+    card.className = 'artist-card';
+    card.innerHTML = `
+    <img src="${a.photo}" class="avatar" alt="${a.name}">
+    <div class="artist-info"><h3>${a.name}</h3><p>${a.bio}</p></div>
+    `;
+
+    card.addEventListener('click', ()=> openArtist(a));
+    artistsGrid.appendChild(card);
+  });
+}
+
+function renderFeatured(){
+  featuredDiv.innerHTML='';
+  artists.forEach(a=>{
+    if(a.tracks && a.tracks[0]){
+      // On affiche uniquement les covers des morceaux
+      const albumGrid = document.createElement('div');
+      albumGrid.className = 'grid';
+      a.tracks.slice(0,1).forEach(t=>{
+        const card = document.createElement("div");
+        card.className="artist-card";
+        card.innerHTML=`
+          <img src="${t.cover}" class="cover" alt="${t.title}">
+          <div class="artist-info">
+            <h3>${t.title}</h3>
+            <p>${a.name}</p>
+          </div>`;
+        card.addEventListener("click",()=>{
+          playlist = a.tracks.map(x=>({
+            src:x.src,
+            title:x.title,
+            artist:a.name,
+            thumb:x.cover || a.photo
+          }));
+          currentIndex=0;
+          loadAndPlay(currentIndex);
+        });
+        albumGrid.appendChild(card);
+      });
+      featuredDiv.appendChild(albumGrid);
+    }
+  });
+}
+
+
+
+
+/* ===== Upcoming ===== */
+function renderUpcoming(){
+  upcomingDiv.innerHTML = `
+    <div class="album-item">
+      <img src="https://mir-s3-cdn-cf.behance.net/projects/max_808/aa3cc6234948753.Y3JvcCw2OTYsNTQ0LDAsMzU1.jpg" alt="upcoming">
+      <div class="title">Nouvel Album — NAN</div>
+      <div class="artist">Sortie 2025</div>
+    </div>
+  `;
+}
+
+/* ===== Playlists (user) ===== */
+function savePlaylists(){ localStorage.setItem('playlists', JSON.stringify(userPlaylists)); }
+function renderPlaylists(){
+  // ensure liked songs are synchronized
+  userPlaylists['Sons Likés'] = userPlaylists['Sons Likés'] || likedSongs;
+  const list = playlistListDiv;
+  list.innerHTML = '';
+  Object.keys(userPlaylists).forEach(pl=>{
+    const card = document.createElement('div');
+    card.className = 'playlist-card';
+    card.innerHTML = `<div><strong>${pl}</strong> <small>(${userPlaylists[pl].length} titres)</small></div>
+                      <div><button class="open">Ouvrir</button> <button class="del">🗑</button></div>`;
+    card.querySelector('.open').addEventListener('click', ()=>{
+      renderPlaylistTracks(pl);
+      // play first if exists
+      if(userPlaylists[pl].length>0){
+        playlist = userPlaylists[pl];
+        currentIndex = 0;
+        loadAndPlay(currentIndex);
+      }
+    });
+    card.querySelector('.del').addEventListener('click', ()=>{
+      if(confirm(`Supprimer la playlist "${pl}" ?`)){
+        delete userPlaylists[pl];
+        savePlaylists();
+        renderPlaylists();
+        playlistTracksDiv.innerHTML = '';
+      }
+    });
+    list.appendChild(card);
+  });
+  // liked list render
+  renderLiked();
+}
+
+function renderPlaylistTracks(plName){
+  const container = playlistTracksDiv;
+  container.innerHTML = `<h3>${plName}</h3>`;
+  userPlaylists[plName].forEach((t, idx)=>{
+    const row = document.createElement('div');
+    row.className = 'playlist-track';
+    row.innerHTML = `<div class="info"><div style="width:48px;height:48px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#57b0ff);display:flex;align-items:center;justify-content:center;color:white">${t.thumb || '♪'}</div><div style="margin-left:10px"><strong>${t.title}</strong><small>${t.artist}</small></div></div>
+                     <div><button class="play-btn">▶</button> <button class="del-btn">🗑</button></div>`;
+    row.querySelector('.play-btn').addEventListener('click', ()=>{
+      playlist = userPlaylists[plName];
+      currentIndex = idx;
+      loadAndPlay(currentIndex);
+    });
+    row.querySelector('.del-btn').addEventListener('click', ()=>{
+      userPlaylists[plName].splice(idx,1);
+      savePlaylists();
+      renderPlaylists();
+      renderPlaylistTracks(plName);
+    });
+    container.appendChild(row);
+  });
+}
+
+/* ===== Liked ==== */
+function renderLiked(){
+  likedListDiv.innerHTML = '';
+  const liked = userPlaylists['Sons Likés'] || [];
+  if(liked.length===0){ likedListDiv.innerHTML = '<p style="color:var(--muted)">Aucun son liké pour l’instant.</p>'; return; }
+  liked.forEach((t,idx)=>{
+    const el = document.createElement('div');
+    el.className = 'artist-card';
+    el.innerHTML = `<div class="avatar">${t.thumb || '♡'}</div><div class="artist-info"><h3>${t.title}</h3><p>${t.artist}</p></div>`;
+    el.addEventListener('click', ()=> {
+      playlist = userPlaylists['Sons Likés'];
+      currentIndex = idx;
+      loadAndPlay(currentIndex);
+    });
+    likedListDiv.appendChild(el);
+  });
+}
+
+/* ===== Modal artiste ===== */
+function openArtist(a){
+  artistModal.setAttribute('aria-hidden','false');
+  modalName.textContent = a.name;
+  modalBio.textContent = a.bio;
+  modalTracks.innerHTML = '';
+  a.tracks.forEach((t, idx)=>{
+    const tr = document.createElement('div');
+    tr.className = 'track';
+    tr.style.display = 'flex';
+    tr.style.justifyContent='space-between';
+    tr.style.alignItems='center';
+    tr.style.padding='8px';
+    tr.style.borderRadius='10px';
+    tr.style.background='rgba(255,255,255,0.02)';
+    tr.innerHTML = `
+        <div style="display:flex;align-items:center;gap:10px">
+        <img src="${t.cover}" class="cover" alt="${t.title}">
+        <div>
+        <div style="font-weight:600">${t.title}</div>
+        <div style="font-size:12px;color:var(--muted)">${a.name}</div>
+        </div>
+    </div>
+    <div style="display:flex;gap:6px;flex-shrink:0">
+        <button class="play-btn" style="font-size:14px;padding:4px 6px">▶</button>
+        <button class="like-btn" style="font-size:14px;padding:4px 6px">♡</button>
+        <button class="add-btn" style="font-size:14px;padding:4px 6px">＋</button>
+    </div>
+    `;
+
+    tr.querySelector('.play-btn').addEventListener('click', ()=>{
+      // resolve src: first available
+      const src = Array.isArray(t.src) ? t.src[0] : t.src;
+      playlist = a.tracks.map(x=>({src: Array.isArray(x.src)? x.src[0] : x.src, title: x.title, artist: a.name, thumb: a.avatar}));
+      currentIndex = idx;
+      loadAndPlay(currentIndex);
+      artistModal.setAttribute('aria-hidden','true');
+    });
+    tr.querySelector('.like-btn').addEventListener('click', ()=>{
+      if(!userPlaylists['Sons Likés']) userPlaylists['Sons Likés'] = [];
+      userPlaylists['Sons Likés'].push({title:t.title,artist:a.name,src:Array.isArray(t.src)?t.src[0]:t.src,thumb:a.avatar});
+      savePlaylists(); renderPlaylists();
+      alert('Ajouté aux Sons Likés !');
+    });
+    tr.querySelector('.add-btn').addEventListener('click', ()=>{
+      const plName = prompt('Nom de la playlist :');
+      if(plName){
+        if(!userPlaylists[plName]) userPlaylists[plName] = [];
+        userPlaylists[plName].push({title:t.title,artist:a.name,src:Array.isArray(t.src)?t.src[0]:t.src,thumb:a.avatar});
+        savePlaylists(); renderPlaylists();
+        alert(`Ajouté à "${plName}"`);
+      }
+    });
+    modalTracks.appendChild(tr);
+  });
+}
+modalClose.addEventListener('click', ()=> artistModal.setAttribute('aria-hidden','true'));
+
+/* ===== Search ===== */
+function doSearch(q){
+  const query = q.toLowerCase();
+  const results = [];
+  artists.forEach(a=>{
+    a.tracks.forEach(t=>{
+      if(t.title.toLowerCase().includes(query) || a.name.toLowerCase().includes(query)){
+        results.push({
+  title:t.title,
+  artist:a.name,
+  src: Array.isArray(t.src)? t.src[0]:t.src,
+  thumb: t.cover || a.photo
+});
+
+      }
+    });
+  });
+  // include albums
+  albums.forEach(al=>{
+    if(al.title.toLowerCase().includes(query) || al.artist.toLowerCase().includes(query)){
+      results.push({title:al.title, artist:al.artist, src: al.audio, thumb: al.image});
+    }
+  });
+
+  // render
+  searchResultsDiv.innerHTML = '';
+  if(results.length===0) { searchResultsDiv.innerHTML = '<p style="color:var(--muted)">Aucun résultat</p>'; return; }
+  results.forEach(r=>{
+    const card = document.createElement('div');
+    card.className = 'track-card';
+    card.innerHTML = `<div style="display:flex;gap:12px;align-items:center"><div style="width:56px;height:56px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#57b0ff);display:flex;align-items:center;justify-content:center">${r.thumb||'♪'}</div>
+                      <div><div class="title">${r.title}</div><div class="sub">${r.artist}</div></div></div>
+                      <div><button class="play-btn">▶</button></div>`;
+    card.querySelector('.play-btn').addEventListener('click', ()=>{
+      playlist = [{src:r.src,title:r.title,artist:r.artist,thumb:r.thumb}];
+      currentIndex = 0;
+      loadAndPlay(currentIndex);
+    });
+    searchResultsDiv.appendChild(card);
+  });
+}
+
+document.getElementById('searchInput').addEventListener('input', (e)=>{
+  const q = e.target.value.trim();
+  if(q.length<2){ searchResultsDiv.innerHTML=''; return; }
+  doSearch(q);
+});
+
+/* header search already wired above */
+
+/* ===== Player functions ===== */
+function resolveSrc(src){
+  if(Array.isArray(src)){
+    // return first reachable — we assume first is local, second is fallback
+    return src[0] || src[1];
+  }
+  return src;
+}
+
+function loadTrack(i){
+  const t = playlist[i];
+  if(!t) return;
+  const src = resolveSrc(t.src);
+  if(audio.src !== src) audio.src = src;
+  playerTitle.textContent = t.title;
+  playerArtist.textContent = t.artist;
+  // thumb may be image url or letter; if image -> set src, else show gradient placeholder
+  if(t.thumb && (t.thumb.startsWith('http') || t.thumb.endsWith('.jpg') || t.thumb.endsWith('.png'))){
+    playerThumb.src = t.thumb;
+    playerThumb.style.objectFit = 'cover';
+  } else {
+    // create data url placeholder with text? fallback to gradient solid
+    playerThumb.src = '';
+    playerThumb.style.background = 'linear-gradient(135deg,var(--accent),#57b0ff)';
+    playerThumb.alt = t.thumb || '♪';
+  }
+  saveLastPlayed();
+}
+
+function loadAndPlay(i){
+  if(!playlist[i]) return;
+  currentIndex = i;
+  loadTrack(i);
+  // ensure audio source set, then play
+  try{
+    audio.play().then(()=> {
+      playPauseBtn.textContent = '⏸';
+    }).catch(()=> {
+      // autoplay might be blocked, set play icon
+      playPauseBtn.textContent = '▶';
+    });
+  }catch(e){
+    playPauseBtn.textContent = '▶';
+  }
+}
+
+/* controls */
+playPauseBtn.addEventListener('click', ()=>{
+  if(audio.paused){
+    audio.play();
+    playPauseBtn.textContent = '⏸';
+  }else{
+    audio.pause();
+    playPauseBtn.textContent = '▶';
+  }
+});
+nextBtn.addEventListener('click', ()=>{
+  if(isShuffle) {
+    currentIndex = Math.floor(Math.random()*playlist.length);
+    loadAndPlay(currentIndex);
+    return;
+  }
+  if(currentIndex < playlist.length-1){
+    currentIndex++;
+    loadAndPlay(currentIndex);
+  } else if(isRepeat) {
+    currentIndex = 0;
+    loadAndPlay(currentIndex);
+  }
+});
+prevBtn.addEventListener('click', ()=>{
+  if(audio.currentTime > 3){ audio.currentTime = 0; return; }
+  if(currentIndex>0){ currentIndex--; loadAndPlay(currentIndex); }
+});
+
+audio.addEventListener('timeupdate', ()=>{
+  if(!audio.duration) return;
+  const pct = (audio.currentTime / audio.duration) * 100;
+  progress.value = pct;
+  currentTimeEl.textContent = formatTime(audio.currentTime);
+  durationTimeEl.textContent = formatTime(audio.duration);
+});
+progress.addEventListener('input', ()=> {
+  if(!audio.duration) return;
+  audio.currentTime = (progress.value / 100) * audio.duration;
+});
+volumeEl.addEventListener('input', ()=> audio.volume = volumeEl.value);
+
+audio.addEventListener('ended', ()=> {
+  if(isRepeat){
+    audio.currentTime = 0; audio.play();
+    return;
+  }
+  if(isShuffle){
+    currentIndex = Math.floor(Math.random()*playlist.length);
+    loadAndPlay(currentIndex);
+    return;
+  }
+  if(currentIndex < playlist.length - 1){
+    currentIndex++;
+    loadAndPlay(currentIndex);
+  } else {
+    playPauseBtn.textContent = '▶';
+  }
+});
+
+/* shuffle & repeat */
+shuffleBtn.addEventListener('click', ()=>{
+  isShuffle = !isShuffle;
+  shuffleBtn.style.color = isShuffle ? 'var(--accent)' : '';
+});
+repeatBtn.addEventListener('click', ()=>{
+  isRepeat = !isRepeat;
+  repeatBtn.style.color = isRepeat ? 'var(--accent)' : '';
+});
+
+/* like current track */
+likeCurrentBtn.addEventListener('click', ()=>{
+  const t = playlist[currentIndex];
+  if(!t) return alert('Aucun morceau en cours');
+  if(!userPlaylists['Sons Likés']) userPlaylists['Sons Likés'] = [];
+  userPlaylists['Sons Likés'].push({title:t.title,artist:t.artist,src:t.src,thumb:t.thumb || '♡'});
+  savePlaylists(); renderPlaylists();
+  alert('Ajouté aux Sons Likés !');
+});
+
+/* time format */
+function formatTime(s){
+  if(!s || isNaN(s)) return '00:00';
+  const m = Math.floor(s/60);
+  const sec = Math.floor(s%60);
+  return `${String(m).padStart(2,'0')}:${String(sec).padStart(2,'0')}`;
+}
+
+/* save/restore last played */
+function saveLastPlayed(){
+  const t = playlist[currentIndex];
+  if(!t) return;
+  localStorage.setItem('lastPlayed', JSON.stringify({title:t.title, artist:t.artist, thumb:t.thumb}));
+}
+function restoreLastPlayed(){
+  const st = JSON.parse(localStorage.getItem('lastPlayed') || 'null');
+  if(!st) return;
+  if(st.title) playerTitle.textContent = st.title;
+  if(st.artist) playerArtist.textContent = st.artist;
+}
+
+/* ===== Init render & events ===== */
+function init(){
+  renderArtists();
+  renderFeatured();
+  renderUpcoming();
+  renderPlaylists();
+  restoreLastPlayed();
+
+  // album grid from second project -> also available inside featuredDiv
+  // Create starter playlist (first album)
+  if(albums.length>0 && playlist.length===0){
+    // don't auto play, just set as candidate
+    playlist = albums.map(a=>({src:a.audio,title:a.title,artist:a.artist,thumb:a.image}));
+  }
+
+  // create playlist button
+  if(createPlaylistBtn){
+    createPlaylistBtn.addEventListener('click', ()=>{
+      const name = newPlaylistNameInput.value.trim();
+      if(!name) return alert('Donne un nom à la playlist');
+      if(!userPlaylists[name]) userPlaylists[name] = [];
+      savePlaylists(); renderPlaylists();
+      newPlaylistNameInput.value = '';
+    });
+  }
+
+  // header search enter wired to page search
+  document.getElementById('headerSearch').addEventListener('keydown', (e)=>{
+    if(e.key === 'Enter'){
+      const q = e.target.value.trim();
+      if(q.length>=2){ showPage('search'); document.getElementById('searchInput').value = q; doSearch(q); }
+    }
+  });
+
+  // bottom nav (mobile)
+  document.querySelectorAll('.bottom-nav .bt').forEach(b=>{
+    b.addEventListener('click', ()=> showPage(b.dataset.page));
+  });
+
+  // small nav buttons (sidebar) map to pages
+  document.querySelectorAll('.nav-btn').forEach(b=>{
+    b.addEventListener('click', ()=>{
+      const pageMap = { 'Découvrir':'home' };
+    });
+  });
+}
+
+/* kick off */
+init();
+
+/* Make sure the UI reacts when clicking featured album play icons (delegation) */
+document.addEventListener('click', (e)=>{
+  if(e.target.closest('.album-item .play-button') || e.target.closest('.album-item')) {
+    // handled by album item listeners already
+  }
+});
