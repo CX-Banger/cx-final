@@ -1,5 +1,12 @@
 /* ========= Fusion JS (artistes + albums + lecteur + playlists + recherche) ========= */
 
+/* === Configuration GitHub === */
+// URL de base pour les ressources hébergées sur GitHub
+// Option 1: GitHub Pages (recommandé si activé)
+// const GITHUB_BASE_URL = 'https://cx-banger.github.io/cx-final-muzikly';
+// Option 2: GitHub raw (fallback)
+const GITHUB_BASE_URL = 'https://raw.githubusercontent.com/CX-Banger/cx-final-muzikly/main';
+
 /* === Données artistes (basées sur ton premier code) === */
 const artistNames = ['NAN', 'Synaï', 'Elihem', 'Sara', 'Eilynn', 'Melohim', 'Tiim', 'Math'];
 const trackTitles = [
@@ -17,12 +24,12 @@ const artists = artistNames.map((name,i)=>({
   id:i+1,
   name,
   bio:`${name} `,
-  photo:`media/artistes/${i+1}.jpg`,  // photo de profil
+  photo:`${GITHUB_BASE_URL}/media/artistes/${i+1}.jpg`,  // photo de profil
   tracks:trackTitles[i].map((title,j)=>({
     id:`son${j+1}`,
     title,
-    src:`media/artiste${i+1}/son${j+1}.mp3`,
-    cover:`media/artiste${i+1}/cover${j+1}.jpg` // cover du son
+    src:`${GITHUB_BASE_URL}/media/artiste${i+1}/son${j+1}.mp3`,
+    cover:`${GITHUB_BASE_URL}/media/artiste${i+1}/cover${j+1}.jpg` // cover du son
   }))
 }));
 
@@ -565,4 +572,3 @@ document.addEventListener('click', (e)=>{
     // handled by album item listeners already
   }
 });
-
