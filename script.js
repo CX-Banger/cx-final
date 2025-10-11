@@ -1,11 +1,14 @@
 /* ========= Fusion JS (artistes + albums + lecteur + playlists + recherche) ========= */
 
-/* === Configuration GitHub === */
-// URL de base pour les ressources hébergées sur GitHub
+/* === Configuration des ressources === */
+// URL de base pour les images hébergées sur GitHub
 // Option 1: GitHub Pages (recommandé si activé)
 // const GITHUB_BASE_URL = 'https://cx-banger.github.io/cx-final-muzikly';
 // Option 2: GitHub raw (fallback)
 const GITHUB_BASE_URL = 'https://raw.githubusercontent.com/CX-Banger/cx-final-muzikly/main';
+
+// URL de base pour les fichiers audio hébergés sur Supabase Storage
+const SUPABASE_STORAGE_URL = 'https://hrzmagjjobctkfxayokt.supabase.co/storage/v1/object/public/sons/';
 
 /* === Données artistes (basées sur ton premier code) === */
 const artistNames = ['NAN', 'Synaï', 'Elihem', 'Sara', 'Eilynn', 'Melohim', 'Tiim', 'Math'];
@@ -24,12 +27,12 @@ const artists = artistNames.map((name,i)=>({
   id:i+1,
   name,
   bio:`${name} `,
-  photo:`${GITHUB_BASE_URL}/media/artistes/${i+1}.jpg`,  // photo de profil
+  photo:`${GITHUB_BASE_URL}/media/artistes/${i+1}.jpg`,  // photo de profil depuis GitHub
   tracks:trackTitles[i].map((title,j)=>({
     id:`son${j+1}`,
     title,
-    src:`${GITHUB_BASE_URL}/media/artiste${i+1}/son${j+1}.mp3`,
-    cover:`${GITHUB_BASE_URL}/media/artiste${i+1}/cover${j+1}.jpg` // cover du son
+    src:`${SUPABASE_STORAGE_URL}/artiste${i+1}/son${j+1}.mp3`,  // audio depuis Supabase
+    cover:`${GITHUB_BASE_URL}/media/artiste${i+1}/cover${j+1}.jpg` // cover depuis GitHub
   }))
 }));
 
