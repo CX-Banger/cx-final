@@ -26,7 +26,7 @@ body {
 }
 .logo-mark {
   width: 40px; height: 40px; border-radius: 8px;
-  background: linear-gradient(135deg, #1DB954, #1ed760);
+  background: linear-gradient(135deg, #000, #000);
   display: flex; align-items: center; justify-content: center;
   font-weight: 700; color: #fff;
 }
