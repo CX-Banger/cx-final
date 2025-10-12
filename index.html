@@ -2,7 +2,10 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <title>Muzikly - ConnexionBanger</title>
 
   <!-- Font & Icons -->
@@ -11,6 +14,9 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
+
+  <!-- JS -->
+  <script src="script.js"></script>
 </head>
 <body>
   <div class="app">
@@ -72,8 +78,13 @@
           <h3>Artistes</h3>
           <div id="artistsGrid" class="grid artists-grid"></div>
 
-          <h3>Sons à la une</h3>
-          <div id="featured" class="grid featured-grid"></div>
+          <div class="featured-section">
+            <div class="featured-header">
+              <h3>Sons à la une</h3>
+              <a href="#" class="discography-link">Voir plus</a>
+            </div>
+            <div id="featured" class="featured-grid"></div>
+          </div>
         </section>
 
         <!-- Playlists -->
