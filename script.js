@@ -189,7 +189,7 @@ function renderFeatured(){
 function renderUpcoming(){
   upcomingDiv.innerHTML = `
     <div class="album-item">
-      <img src="https://github.com/CX-Banger/profile-page-artiste/blob/main/assets/Vinyl_record.svg.png?raw=true" alt="upcoming">
+      <img src="https://github.com/CX-Banger/cx-muzikly-1.2/blob/main/assets/Vinyl_record.svg.png?raw=true" alt="upcoming">
       <div class="title"> </div>
       <div class="artist">Sortie 2025</div>
     </div>
