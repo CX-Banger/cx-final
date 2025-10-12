@@ -146,11 +146,13 @@ function renderFeatured(){
 
   const featuredAlbums = [
     { title: "Olala", artist: "NAN", year: "NAN", cover: `${GITHUB_BASE_URL}/media/artiste1/cover1.jpg`, artistIndex: 0 },
-    { title: "YHWH", artist: "Synaï", year: "Synaï", cover: `${GITHUB_BASE_URL}/media/artiste1/cover2.jpg`, artistIndex: 1 },
-    { title: "In God", artist: "Elihem", year: "Elihem", cover: `${GITHUB_BASE_URL}/media/artiste1/cover3.jpg`, artistIndex: 2 },
-    { title: "Sara 1", artist: "Sara", year: "2025", cover: `${GITHUB_BASE_URL}/media/artiste1/cover4.jpg`, artistIndex: 3 },
-    { title: "Cendrillon", artist: "Eilynn", year: "2025", cover: `${GITHUB_BASE_URL}/media/artiste1/cover5.jpg`, artistIndex: 4 },
-    { title: "Melohim 1", artist: "Melohim", year: "2025", cover: `${GITHUB_BASE_URL}/media/artiste1/cover6.jpg`, artistIndex: 5 }
+    { title: "YHWH", artist: "Synaï", year: "Synaï", cover: `${GITHUB_BASE_URL}/media/artiste2/cover2.jpg`, artistIndex: 1 },
+    { title: "In God", artist: "Elihem", year: "Elihem", cover: `${GITHUB_BASE_URL}/media/artiste3/cover3.jpg`, artistIndex: 2 },
+    { title: "Sara 1", artist: "Sara", year: "2025", cover: `${GITHUB_BASE_URL}/media/artiste4/cover2.jpg`, artistIndex: 3 },
+    { title: "Cendrillon", artist: "Eilynn", year: "2025", cover: `${GITHUB_BASE_URL}/media/artiste5/cover2.jpg`, artistIndex: 4 },
+    { title: "Melohim 1", artist: "Melohim", year: "2025", cover: `${GITHUB_BASE_URL}/media/artiste6/cover2.jpg`, artistIndex: 5 },
+    { title: "Tiim 1", artist: "Tiim", year: "2025", cover: `${GITHUB_BASE_URL}/media/artiste7/cover2.jpg`, artistIndex: 6 },
+    { title: "Math 1", artist: "Math", year: "2025", cover: `${GITHUB_BASE_URL}/media/artiste8/cover2.jpg`, artistIndex: 7 }
   ];
 
   featuredAlbums.forEach((album, idx) => {
@@ -187,12 +189,12 @@ function renderFeatured(){
 function renderUpcoming(){
   upcomingDiv.innerHTML = `
     <div class="album-item">
-      <img src="https://github.com/CX-Banger/cx-devdocs/blob/main/cover-album/one-way-jesus.jpg?raw=true" alt="upcoming">
-      <div class="title">Nouvel Album — NAN</div>
+      <img src="https://github.com/CX-Banger/profile-page-artiste/blob/main/assets/Vinyl_record.svg.png?raw=true" alt="upcoming">
+      <div class="title"> </div>
       <div class="artist">Sortie 2025</div>
     </div>
   `;
-}
+} /* mettre le nom de l'album : <div class="title">nom_album </div> :)
 
 /* ===== Playlists (user) ===== */
 function savePlaylists(){ localStorage.setItem('playlists', JSON.stringify(userPlaylists)); }
