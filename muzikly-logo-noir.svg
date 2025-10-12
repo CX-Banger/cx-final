@@ -4,7 +4,7 @@
   
   <!-- Ombre subtile -->
   <rect x="12" y="12" width="180" height="180" rx="40" ry="40" fill="rgba(0,0,0,0.1)"/>
-  <rect x="10" y="10" width="180" height="180" rx="40" ry="40" fill="#4CAF50"/>
+  <rect x="10" y="10" width="180" height="180" rx="40" ry="40" fill="#000000"/>
   
   <!-- Icône spirale centrée et redimensionnée -->
   <g transform="translate(100, 100) scale(7)">
