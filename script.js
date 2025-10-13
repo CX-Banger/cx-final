@@ -67,19 +67,6 @@ const createPlaylistBtn = document.getElementById('createPlaylistBtn');
 
 /* Player refs */
 const audio = document.getElementById('audio');
-const playPauseBtn = document.getElementById('playPause');
-const prevBtn = document.getElementById('prevTrack');
-const nextBtn = document.getElementById('nextTrack');
-const playerTitle = document.getElementById('playerTitle');
-const playerArtist = document.getElementById('playerArtist');
-const playerThumb = document.getElementById('playerThumb');
-const progress = document.getElementById('progress');
-const currentTimeEl = document.getElementById('currentTime');
-const durationTimeEl = document.getElementById('durationTime');
-const volumeEl = document.getElementById('volume');
-const shuffleBtn = document.getElementById('shuffleBtn');
-const repeatBtn = document.getElementById('repeatBtn');
-const likeCurrentBtn = document.getElementById('likeCurrent');
 
 /* Modal refs */
 const artistModal = document.getElementById('artistModal');
@@ -394,18 +381,15 @@ function loadTrack(i){
   if(!t) return;
   const src = resolveSrc(t.src);
   if(audio.src !== src) audio.src = src;
-  playerTitle.textContent = t.title;
-  playerArtist.textContent = t.artist;
-  // thumb may be image url or letter; if image -> set src, else show gradient placeholder
-  if(t.thumb && (t.thumb.startsWith('http') || t.thumb.endsWith('.jpg') || t.thumb.endsWith('.png'))){
-    playerThumb.src = t.thumb;
-    playerThumb.style.objectFit = 'cover';
-  } else {
-    // create data url placeholder with text? fallback to gradient solid
-    playerThumb.src = '';
-    playerThumb.style.background = 'linear-gradient(135deg,var(--accent),#57b0ff)';
-    playerThumb.alt = t.thumb || '♪';
+
+  if (typeof updateMiniPlayer === 'function') {
+    updateMiniPlayer(t.title, t.artist, t.thumb);
   }
+
+  if (typeof updateFullPlayerUI === 'function') {
+    updateFullPlayerUI();
+  }
+
   saveLastPlayed();
 }
 
@@ -413,108 +397,10 @@ function loadAndPlay(i){
   if(!playlist[i]) return;
   currentIndex = i;
   loadTrack(i);
-  // ensure audio source set, then play
+
   try{
-    audio.play().then(()=> {
-      playPauseBtn.textContent = '⏸';
-    }).catch(()=> {
-      // autoplay might be blocked, set play icon
-      playPauseBtn.textContent = '▶';
-    });
-  }catch(e){
-    playPauseBtn.textContent = '▶';
-  }
-}
-
-/* controls */
-playPauseBtn.addEventListener('click', ()=>{
-  if(audio.paused){
-    audio.play();
-    playPauseBtn.textContent = '⏸';
-  }else{
-    audio.pause();
-    playPauseBtn.textContent = '▶';
-  }
-});
-nextBtn.addEventListener('click', ()=>{
-  if(isShuffle) {
-    currentIndex = Math.floor(Math.random()*playlist.length);
-    loadAndPlay(currentIndex);
-    return;
-  }
-  if(currentIndex < playlist.length-1){
-    currentIndex++;
-    loadAndPlay(currentIndex);
-  } else if(isRepeat) {
-    currentIndex = 0;
-    loadAndPlay(currentIndex);
-  }
-});
-prevBtn.addEventListener('click', ()=>{
-  if(audio.currentTime > 3){ audio.currentTime = 0; return; }
-  if(currentIndex>0){ currentIndex--; loadAndPlay(currentIndex); }
-});
-
-audio.addEventListener('timeupdate', ()=>{
-  if(!audio.duration) return;
-  const pct = (audio.currentTime / audio.duration) * 100;
-  progress.value = pct;
-  progress.style.setProperty('--progress', pct + '%');
-  currentTimeEl.textContent = formatTime(audio.currentTime);
-  durationTimeEl.textContent = formatTime(audio.duration);
-});
-progress.addEventListener('input', ()=> {
-  if(!audio.duration) return;
-  const pct = progress.value;
-  progress.style.setProperty('--progress', pct + '%');
-  audio.currentTime = (pct / 100) * audio.duration;
-});
-volumeEl.addEventListener('input', ()=> audio.volume = volumeEl.value);
-
-audio.addEventListener('ended', ()=> {
-  if(isRepeat){
-    audio.currentTime = 0; audio.play();
-    return;
-  }
-  if(isShuffle){
-    currentIndex = Math.floor(Math.random()*playlist.length);
-    loadAndPlay(currentIndex);
-    return;
-  }
-  if(currentIndex < playlist.length - 1){
-    currentIndex++;
-    loadAndPlay(currentIndex);
-  } else {
-    playPauseBtn.textContent = '▶';
-  }
-});
-
-/* shuffle & repeat */
-shuffleBtn.addEventListener('click', ()=>{
-  isShuffle = !isShuffle;
-  shuffleBtn.style.color = isShuffle ? 'var(--accent)' : '';
-});
-repeatBtn.addEventListener('click', ()=>{
-  isRepeat = !isRepeat;
-  repeatBtn.style.color = isRepeat ? 'var(--accent)' : '';
-});
-
-/* like current track */
-likeCurrentBtn.addEventListener('click', ()=>{
-  const t = playlist[currentIndex];
-  if(!t) return alert('Aucun morceau en cours');
-  if(!userPlaylists['Sons Likés']) userPlaylists['Sons Likés'] = [];
-  userPlaylists['Sons Likés'].push({title:t.title,artist:t.artist,src:t.src,thumb:t.thumb || '♡'});
-  savePlaylists(); renderPlaylists();
-  alert('Ajouté aux Sons Likés !');
-});
-
-/* time format */
-function formatTime(s){
-  if(!s || isNaN(s)) return '00:00';
-  const m = Math.floor(s/60);
-  const sec = Math.floor(s%60);
-  return `${String(m).padStart(2,'0')}:${String(sec).padStart(2,'0')}`;
+    audio.play().catch(() => {});
+  }catch(e){}
 }
 
 /* save/restore last played */
@@ -523,11 +409,10 @@ function saveLastPlayed(){
   if(!t) return;
   localStorage.setItem('lastPlayed', JSON.stringify({title:t.title, artist:t.artist, thumb:t.thumb}));
 }
+
 function restoreLastPlayed(){
   const st = JSON.parse(localStorage.getItem('lastPlayed') || 'null');
   if(!st) return;
-  if(st.title) playerTitle.textContent = st.title;
-  if(st.artist) playerArtist.textContent = st.artist;
 }
 
 /* ===== Init render & events ===== */
