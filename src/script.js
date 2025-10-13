@@ -1,8 +1,8 @@
-/* ========= Fusion JS (artistes + albums + lecteur + playlists + recherche) - NATHAN & PAGUIEL ========= */
+/* ========= Fusion JS (artistes + albums + lecteur + playlists + recherche) ========= */
 
 /* === Configuration des ressources === */
 // URL de base pour les images hébergées sur GitHub
-// Option 1: GitHub Pages (recommandé si activé) / LIEN PAR LIEN DE CHAQUE IMAGES
+// Option 1: GitHub Pages (recommandé si activé)
 // const GITHUB_BASE_URL = 'https://cx-banger.github.io/cx-final-muzikly';
 // Option 2: GitHub raw (fallback)
 const GITHUB_BASE_URL = 'https://raw.githubusercontent.com/CX-Banger/cx-final-muzikly/main';
