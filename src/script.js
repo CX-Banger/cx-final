@@ -1,4 +1,4 @@
-/* ========= Fusion JS (artistes + albums + lecteur + playlists + recherche) ========= */
+/* ========= Fusion JS (artistes + albums + lecteur + playlists + recherche) - NATHAN & PAGUIEL ========= */
 
 /* === Configuration des ressources === */
 // URL de base pour les images hébergées sur GitHub
