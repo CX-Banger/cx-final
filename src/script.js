@@ -20,7 +20,7 @@ const trackTitles = [
   ['Cendrillon', 'Kalynn 2'],
   ['Melohim 1', 'Melohim 2', 'Melohim 3'],
   ['Tiim 1', 'Tiim 2'],
-  ['Math 1', 'Math 2', 'Math 3', 'Math 4', 'Math 5', 'Math 6']
+  ['Math 1', 'Math 2', 'Math 3', 'Math 4', 'Math 5']
 ];
 
 const artists = artistNames.map((name,i)=>({
