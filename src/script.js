@@ -133,13 +133,13 @@ function renderFeatured(){
 
   const featuredAlbums = [
     { title: "Olala", artist: "NAN", year: "NAN", cover: `${GITHUB_BASE_URL}/media/artiste1/cover1.jpg`, artistIndex: 0 },
-    { title: "YHWH", artist: "Synaï", year: "Synaï", cover: `${GITHUB_BASE_URL}/media/artiste2/cover2.jpg`, artistIndex: 1 },
-    { title: "In God", artist: "Elihem", year: "Elihem", cover: `${GITHUB_BASE_URL}/media/artiste3/cover3.jpg`, artistIndex: 2 },
-    { title: "Sara 1", artist: "Sara", year: "2025", cover: `${GITHUB_BASE_URL}/media/artiste4/cover2.jpg`, artistIndex: 3 },
-    { title: "Cendrillon", artist: "Eilynn", year: "2025", cover: `${GITHUB_BASE_URL}/media/artiste5/cover2.jpg`, artistIndex: 4 },
-    { title: "Melohim 1", artist: "Melohim", year: "2025", cover: `${GITHUB_BASE_URL}/media/artiste6/cover2.jpg`, artistIndex: 5 },
-    { title: "Tiim 1", artist: "Tiim", year: "2025", cover: `${GITHUB_BASE_URL}/media/artiste7/cover2.jpg`, artistIndex: 6 },
-    { title: "Math 1", artist: "Math", year: "2025", cover: `${GITHUB_BASE_URL}/media/artiste8/cover2.jpg`, artistIndex: 7 }
+    { title: "YHWH", artist: "Synaï", year: "Synaï", cover: `${GITHUB_BASE_URL}/media/artiste2/cover1.jpg`, artistIndex: 1 },
+    { title: "In God", artist: "Elihem", year: "Elihem", cover: `${GITHUB_BASE_URL}/media/artiste3/cover1.jpg`, artistIndex: 2 },
+    { title: "Sara 1", artist: "Sara", year: "2025", cover: `${GITHUB_BASE_URL}/media/artiste4/cover1.jpg`, artistIndex: 3 },
+    { title: "Cendrillon", artist: "Eilynn", year: "2025", cover: `${GITHUB_BASE_URL}/media/artiste5/cover1.jpg`, artistIndex: 4 },
+    { title: "Melohim 1", artist: "Melohim", year: "2025", cover: `${GITHUB_BASE_URL}/media/artiste6/cover1.jpg`, artistIndex: 5 },
+    { title: "Tiim 1", artist: "Tiim", year: "2025", cover: `${GITHUB_BASE_URL}/media/artiste7/cover1.jpg`, artistIndex: 6 },
+    { title: "Math 1", artist: "Math", year: "2025", cover: `${GITHUB_BASE_URL}/media/artiste8/cover1.jpg`, artistIndex: 7 }
   ];
 
   featuredAlbums.forEach((album, idx) => {
