@@ -16,10 +16,15 @@ const fullPrevBtn = document.getElementById('fullPrevBtn');
 const fullNextBtn = document.getElementById('fullNextBtn');
 const fullShuffleBtn = document.getElementById('fullShuffleBtn');
 const fullRepeatBtn = document.getElementById('fullRepeatBtn');
-const fullLikeBtn = document.getElementById('fullLikeBtn');
 const fullProgress = document.getElementById('fullProgress');
 const fullCurrentTime = document.getElementById('fullCurrentTime');
 const fullDurationTime = document.getElementById('fullDurationTime');
+
+const playerMenuBtn = document.getElementById('playerMenuBtn');
+const playerMenuPanel = document.getElementById('playerMenuPanel');
+const menuPanelClose = document.getElementById('menuPanelClose');
+const menuLikeBtn = document.getElementById('menuLikeBtn');
+const menuAddToPlaylistBtn = document.getElementById('menuAddToPlaylistBtn');
 
 const bottomNav = document.getElementById('bottomNav');
 const lyricsContent = document.getElementById('lyricsContent');
@@ -161,7 +166,15 @@ fullRepeatBtn.addEventListener('click', () => {
   updateShuffleRepeatButtons();
 });
 
-fullLikeBtn.addEventListener('click', () => {
+playerMenuBtn.addEventListener('click', () => {
+  playerMenuPanel.classList.add('active');
+});
+
+menuPanelClose.addEventListener('click', () => {
+  playerMenuPanel.classList.remove('active');
+});
+
+menuLikeBtn.addEventListener('click', () => {
   const t = playlist[currentIndex];
   if (!t) return;
 
@@ -173,6 +186,7 @@ fullLikeBtn.addEventListener('click', () => {
 
   if (alreadyLiked) {
     alert('Déjà dans les Sons Likés !');
+    playerMenuPanel.classList.remove('active');
     return;
   }
 
@@ -186,11 +200,32 @@ fullLikeBtn.addEventListener('click', () => {
   savePlaylists();
   renderPlaylists();
 
-  fullLikeBtn.querySelector('i').className = 'fas fa-heart';
+  menuLikeBtn.querySelector('i').className = 'fas fa-heart';
 
   setTimeout(() => {
-    fullLikeBtn.querySelector('i').className = 'far fa-heart';
-  }, 2000);
+    menuLikeBtn.querySelector('i').className = 'far fa-heart';
+    playerMenuPanel.classList.remove('active');
+  }, 1500);
+});
+
+menuAddToPlaylistBtn.addEventListener('click', () => {
+  const t = playlist[currentIndex];
+  if (!t) return;
+
+  const plName = prompt('Nom de la playlist :');
+  if (plName) {
+    if (!userPlaylists[plName]) userPlaylists[plName] = [];
+    userPlaylists[plName].push({
+      title: t.title,
+      artist: t.artist,
+      src: t.src,
+      thumb: t.thumb || ''
+    });
+    savePlaylists();
+    renderPlaylists();
+    alert(`Ajouté à "${plName}"`);
+  }
+  playerMenuPanel.classList.remove('active');
 });
 
 audio.addEventListener('timeupdate', () => {
