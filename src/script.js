@@ -177,8 +177,8 @@ function renderUpcoming(){
   upcomingDiv.innerHTML = `
     <div class="album-item">
       <img src="https://github.com/CX-Banger/cx-muzikly-1.2/blob/main/assets/avenir.jpg?raw=true" alt="upcoming">
-      <div class="title"> </div>
-      <div class="artist">Sortie 2025</div>
+      <div class="title">The King</div>
+      <div class="artist">SYNAI ft Elihem</div>
     </div>
   `;
 } /* mettre le nom de l'album : <div class="title">nom_album </div> :)
