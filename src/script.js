@@ -283,16 +283,16 @@ function openArtist(a){
         </div>
     </div>
     <div style="display:flex;gap:6px;flex-shrink:0">
-        <button class="play-btn" style="font-size:14px;padding:4px 6px">▶</button>
-        <button class="like-btn" style="font-size:14px;padding:4px 6px">❤️</button>
-        <button class="add-btn" style="font-size:14px;padding:4px 6px">➕</button>
+        <button class="play-btn" style="font-size:14px;padding:6px 10px"><i class="fas fa-play"></i></button>
+        <button class="like-btn" style="font-size:14px;padding:6px 10px"><i class="fas fa-heart"></i></button>
+        <button class="add-btn" style="font-size:14px;padding:6px 10px"><i class="fas fa-plus"></i></button>
     </div>
     `;
 
     tr.querySelector('.play-btn').addEventListener('click', ()=>{
       // resolve src: first available
       const src = Array.isArray(t.src) ? t.src[0] : t.src;
-      playlist = a.tracks.map(x=>({src: Array.isArray(x.src)? x.src[0] : x.src, title: x.title, artist: a.name, thumb: a.avatar}));
+      playlist = a.tracks.map(x=>({src: Array.isArray(x.src)? x.src[0] : x.src, title: x.title, artist: a.name, thumb: x.cover || a.photo}));
       currentIndex = idx;
       loadAndPlay(currentIndex);
       artistModal.setAttribute('aria-hidden','true');
@@ -347,9 +347,14 @@ function doSearch(q){
   results.forEach(r=>{
     const card = document.createElement('div');
     card.className = 'track-card';
-    card.innerHTML = `<div style="display:flex;gap:12px;align-items:center"><div style="width:56px;height:56px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#57b0ff);display:flex;align-items:center;justify-content:center">${r.thumb||'♪'}</div>
+
+    const thumbElement = r.thumb && (r.thumb.startsWith('http') || r.thumb.includes('.jpg') || r.thumb.includes('.png'))
+      ? `<img src="${r.thumb}" style="width:56px;height:56px;border-radius:8px;object-fit:cover;" alt="${r.title}">`
+      : `<div style="width:56px;height:56px;border-radius:8px;background:linear-gradient(135deg,#1DB954,#1ed760);display:flex;align-items:center;justify-content:center;color:white;font-weight:bold">♪</div>`;
+
+    card.innerHTML = `<div style="display:flex;gap:12px;align-items:center">${thumbElement}
                       <div><div class="title">${r.title}</div><div class="sub">${r.artist}</div></div></div>
-                      <div><button class="play-btn">▶</button></div>`;
+                      <div><button class="play-btn"><i class="fas fa-play"></i></button></div>`;
     card.querySelector('.play-btn').addEventListener('click', ()=>{
       playlist = [{src:r.src,title:r.title,artist:r.artist,thumb:r.thumb}];
       currentIndex = 0;
