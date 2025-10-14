@@ -284,8 +284,8 @@ function openArtist(a){
     </div>
     <div style="display:flex;gap:6px;flex-shrink:0">
         <button class="play-btn" style="font-size:14px;padding:4px 6px">▶</button>
-        <button class="like-btn" style="font-size:14px;padding:4px 6px">♡</button>
-        <button class="add-btn" style="font-size:14px;padding:4px 6px">＋</button>
+        <button class="like-btn" style="font-size:14px;padding:4px 6px">❤️</button>
+        <button class="add-btn" style="font-size:14px;padding:4px 6px">➕</button>
     </div>
     `;
 
