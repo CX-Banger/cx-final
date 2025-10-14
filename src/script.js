@@ -176,9 +176,9 @@ function renderFeatured(){
 function renderUpcoming(){
   upcomingDiv.innerHTML = `
     <div class="album-item">
-      <img src="https://github.com/CX-Banger/cx-muzikly-1.2/blob/main/media/album_avenir/avenir.jpg" alt="upcoming">
+      <img src="https://github.com/CX-Banger/cx-muzikly-1.2/blob/main/media/sorties/_ft/avenir.jpg?raw=true" alt="upcoming">
       <div class="title">The King</div>
-      <div class="artist">SYNAI ft Elihem</div>
+      <div class="artist">SYNAI ft. Elihem</div>
     </div>
   `;
 } /* mettre le nom de l'album : <div class="title">nom_album </div> :)
