@@ -432,7 +432,7 @@ if (heroArt) {
     const obsedeSong = {
       title: 'Obsédé',
       artist: 'NAN(Rap-Gospel)',
-      src: 'https://hrzmagjjobctkfxayokt.supabase.co/storage/v1/object/public/sons/artiste%201/son2.mp3',
+      src: 'https://hrzmagjjobctkfxayokt.supabase.co/storage/v1/object/public/sons/artiste1/son2.mp3',
       thumb: `${GITHUB_BASE_URL}/media/artiste1/cover2.jpg`
     };
     playlist = [obsedeSong];
