@@ -15,7 +15,7 @@ const artistNames = ['NAN', 'Synaï', 'Elihem', 'Sara', 'Eilynn', 'Melohim', 'Ti
 const trackTitles = [
   ['Olala', 'Obsédé', 'Etoile', 'Parapluie', 'Love Story', 'Bande', 'Epitre Au Monde #1', 'Mieux', 'Alchimie', 'Compassion', 'Génant', 'Techiyá', 'Kesse', 'Psaumes 151', 'Pourquoi', 'Dispo'],
   ['YHWH', 'Freestyle Pour Dieu', 'Zinzin', 'Choisir Papa', 'Le Temps', 'Une Question...', 'Papa Yahweh ft Eilynn', 'Saisir les Bases', 'Dessin'],
-  ['In God', 'Visé', 'Chanson 3'],
+  ['In God', 'Visé', 'Minimum', 'Can you hear me ?', 'Evidemment'],
   ['Grâce infinie', 'Tentation', 'Dis moi ft Eilynn', 'Evangéliser'],
   ['Cendrillon', 'Nouveau Départ'],
   ['Melohim 1', 'Melohim 2', 'Melohim 3'],
