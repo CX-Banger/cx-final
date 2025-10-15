@@ -176,7 +176,7 @@ function renderFeatured(){
 function renderUpcoming(){
   upcomingDiv.innerHTML = `
     <div class="album-item">
-      <img src="https://github.com/CX-Banger/cx-muzikly-1.2/blob/main/media/sorties/avenir.jpg?raw=true" alt="upcoming">
+      <img src="https://github.com/CX-Banger/cx-muzik/blob/main/media/sorties/avenir.jpg?raw=true" alt="upcoming">
       <div class="title">The King</div>
       <div class="artist">SYNAI ft. Elihem</div>
     </div>
@@ -431,7 +431,7 @@ if (heroArt) {
   heroArt.addEventListener('click', () => {
     const obsedeSong = {
       title: 'Obsédé',
-      artist: 'NAN',
+      artist: 'NAN(Rap-Gospel)',
       src: 'https://hrzmagjjobctkfxayokt.supabase.co/storage/v1/object/public/sons/artiste1/son2.mp3',
       thumb: `${GITHUB_BASE_URL}/media/artiste1/cover2.jpg`
     };
