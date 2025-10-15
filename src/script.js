@@ -132,10 +132,10 @@ function renderFeatured(){
   featuredDiv.innerHTML='';
 
   const featuredAlbums = [
-    { title: "Olala", artist: "NAN", year: "2025", cover: `${GITHUB_BASE_URL}/media/artiste1/cover1.jpg`, artistIndex: 0 },
-    { title: "YHWH", artist: "Synaï", year: "2025", cover: `${GITHUB_BASE_URL}/media/artiste2/cover1.jpg`, artistIndex: 1 },
-    { title: "In God", artist: "Elihem", year: "2025", cover: `${GITHUB_BASE_URL}/media/artiste3/cover1.jpg`, artistIndex: 2 },
-    { title: "Grâce Infinie", artist: "Sara", year: "2025", cover: `${GITHUB_BASE_URL}/media/artiste4/cover1.jpg`, artistIndex: 3 },
+    { title: "Olala", artist: "NAN", year: "NAN", cover: `${GITHUB_BASE_URL}/media/artiste1/cover1.jpg`, artistIndex: 0 },
+    { title: "YHWH", artist: "Synaï", year: "Synaï", cover: `${GITHUB_BASE_URL}/media/artiste2/cover1.jpg`, artistIndex: 1 },
+    { title: "In God", artist: "Elihem", year: "Elihem", cover: `${GITHUB_BASE_URL}/media/artiste3/cover1.jpg`, artistIndex: 2 },
+    { title: "Sara 1", artist: "Sara", year: "2025", cover: `${GITHUB_BASE_URL}/media/artiste4/cover1.jpg`, artistIndex: 3 },
     { title: "Cendrillon", artist: "Eilynn", year: "2025", cover: `${GITHUB_BASE_URL}/media/artiste5/cover1.jpg`, artistIndex: 4 },
     { title: "Melohim 1", artist: "Melohim", year: "2025", cover: `${GITHUB_BASE_URL}/media/artiste6/cover1.jpg`, artistIndex: 5 },
     { title: "Tiim 1", artist: "Tiim", year: "2025", cover: `${GITHUB_BASE_URL}/media/artiste7/cover1.jpg`, artistIndex: 6 },
@@ -249,7 +249,12 @@ function renderLiked(){
   liked.forEach((t,idx)=>{
     const el = document.createElement('div');
     el.className = 'artist-card';
-    el.innerHTML = `<div class="avatar">${t.thumb || '♡'}</div><div class="artist-info"><h3>${t.title}</h3><p>${t.artist}</p></div>`;
+
+    const thumbElement = t.thumb && (t.thumb.startsWith('http') || t.thumb.includes('.jpg') || t.thumb.includes('.png'))
+      ? `<img src="${t.thumb}" class="avatar" style="width:80px;height:80px;border-radius:8px;object-fit:cover;" alt="${t.title}">`
+      : `<div class="avatar">♡</div>`;
+
+    el.innerHTML = `${thumbElement}<div class="artist-info"><h3>${t.title}</h3><p>${t.artist}</p></div>`;
     el.addEventListener('click', ()=> {
       playlist = userPlaylists['Sons Likés'];
       currentIndex = idx;
@@ -299,7 +304,7 @@ function openArtist(a){
     });
     tr.querySelector('.like-btn').addEventListener('click', ()=>{
       if(!userPlaylists['Sons Likés']) userPlaylists['Sons Likés'] = [];
-      userPlaylists['Sons Likés'].push({title:t.title,artist:a.name,src:Array.isArray(t.src)?t.src[0]:t.src,thumb:a.avatar});
+      userPlaylists['Sons Likés'].push({title:t.title,artist:a.name,src:Array.isArray(t.src)?t.src[0]:t.src,thumb:t.cover || a.photo});
       savePlaylists(); renderPlaylists();
       alert('Ajouté aux Sons Likés !');
     });
@@ -307,7 +312,7 @@ function openArtist(a){
       const plName = prompt('Nom de la playlist :');
       if(plName){
         if(!userPlaylists[plName]) userPlaylists[plName] = [];
-        userPlaylists[plName].push({title:t.title,artist:a.name,src:Array.isArray(t.src)?t.src[0]:t.src,thumb:a.avatar});
+        userPlaylists[plName].push({title:t.title,artist:a.name,src:Array.isArray(t.src)?t.src[0]:t.src,thumb:t.cover || a.photo});
         savePlaylists(); renderPlaylists();
         alert(`Ajouté à "${plName}"`);
       }
@@ -418,6 +423,38 @@ function saveLastPlayed(){
 function restoreLastPlayed(){
   const st = JSON.parse(localStorage.getItem('lastPlayed') || 'null');
   if(!st) return;
+}
+
+/* ===== Hero Banner Click ===== */
+const heroArt = document.getElementById('heroArt');
+if (heroArt) {
+  heroArt.addEventListener('click', () => {
+    const obsedeSong = {
+      title: 'Obsédé',
+      artist: 'NAN(Rap-Gospel)',
+      src: 'https://hrzmagjjobctkfxayokt.supabase.co/storage/v1/object/public/sons/artiste%201/son2.mp3',
+      thumb: `${GITHUB_BASE_URL}/media/artiste1/cover2.jpg`
+    };
+    playlist = [obsedeSong];
+    currentIndex = 0;
+    loadAndPlay(0);
+  });
+}
+
+/* ===== Voir Plus Button ===== */
+const voirPlusBtn = document.getElementById('voirPlusBtn');
+if (voirPlusBtn) {
+  voirPlusBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const featuredGrid = document.getElementById('featured');
+    if (featuredGrid.classList.contains('expanded')) {
+      featuredGrid.classList.remove('expanded');
+      voirPlusBtn.textContent = 'Voir plus';
+    } else {
+      featuredGrid.classList.add('expanded');
+      voirPlusBtn.textContent = 'Voir moins';
+    }
+  });
 }
 
 /* ===== Init render & events ===== */
