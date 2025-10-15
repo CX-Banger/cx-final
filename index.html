@@ -78,13 +78,13 @@
         <!-- Home -->
         <section id="page-home" class="page active">
           <div class="hero">
-            <div class="hero-art"><svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="background: transparent;">
+            <div class="hero-art" id="heroArt" style="cursor: pointer;"><svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" style="background: transparent;">
   <!-- Disque principal blanc -->
   <circle cx="200" cy="200" r="190" fill="#ffffff"/>
-  
+
   <!-- Label central vert -->
   <circle cx="200" cy="200" r="60" fill="#b4e67e"/>
-  
+
   <!-- Trou central blanc -->
   <circle cx="200" cy="200" r="8" fill="#ffffff"/>
 </svg></div>
@@ -104,9 +104,9 @@
           <div class="featured-section">
             <div class="featured-header">
               <h3>Sons à la une</h3>
-              <a href="#" class="discography-link">Voir plus</a>
+              <a href="#" id="voirPlusBtn" class="discography-link">Voir plus</a>
             </div>
-            <div id="featured" class="featured-grid"></div>
+            <div id="featured" class="featured-grid featured-scroll"></div>
           </div>
         </section>
 
@@ -160,7 +160,7 @@
           <div id="miniPlayerTitle" class="mini-player-title">—</div>
           <div id="miniPlayerArtist" class="mini-player-artist">—</div>
         </div>
-        <button id="miniPlayPause" class="mini-play-btn">▶</button>
+        <button id="miniPlayPause" class="mini-play-btn"><i class="fas fa-play"></i></button>
       </div>
     </div>
 
