@@ -62,6 +62,33 @@ function updateMiniPlayer(title, artist, thumb) {
   miniPlayerArtist.textContent = artist;
   miniPlayerThumb.src = thumb || 'https://github.com/CX-Banger/cx-devdocs/blob/main/assets/disque.jpg?raw=true';
   showMiniPlayer();
+
+  if ('mediaSession' in navigator) {
+    navigator.mediaSession.metadata = new MediaMetadata({
+      title: title,
+      artist: artist,
+      album: 'Muzikly',
+      artwork: [
+        { src: thumb || 'https://github.com/CX-Banger/cx-devdocs/blob/main/assets/disque.jpg?raw=true', sizes: '512x512', type: 'image/jpeg' }
+      ]
+    });
+
+    navigator.mediaSession.setActionHandler('play', () => {
+      audio.play();
+    });
+
+    navigator.mediaSession.setActionHandler('pause', () => {
+      audio.pause();
+    });
+
+    navigator.mediaSession.setActionHandler('previoustrack', () => {
+      handlePrev();
+    });
+
+    navigator.mediaSession.setActionHandler('nexttrack', () => {
+      handleNext();
+    });
+  }
 }
 
 function updateFullPlayerUI() {
@@ -78,9 +105,8 @@ function updateFullPlayerUI() {
 
 function updatePlayPauseButtons() {
   const icon = isPlaying ? 'fa-pause' : 'fa-play';
-  const miniIcon = isPlaying ? '⏸' : '▶';
 
-  miniPlayPauseBtn.textContent = miniIcon;
+  miniPlayPauseBtn.innerHTML = `<i class="fas ${icon}"></i>`;
 
   const fullIcon = fullPlayPauseBtn.querySelector('i');
   if (fullIcon) {
