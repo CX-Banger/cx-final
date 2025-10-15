@@ -17,7 +17,7 @@ const trackTitles = [
   ['YHWH', 'Freestyle Pour Dieu', 'Zinzin', 'Choisir Papa', 'Le Temps', 'Une Question...', 'Papa Yahweh ft Eilynn', 'Saisir les Bases', 'Dessin'],
   ['In God', 'Visé', 'Chanson 3'],
   ['Sara 1', 'Sara 2', 'Sara 3', 'Sara 4'],
-  ['Cendrillon', 'Kalynn 2'],
+  ['Cendrillon', 'Nouveau Départ'],
   ['Melohim 1', 'Melohim 2', 'Melohim 3'],
   ['Tiim 1', 'Tiim 2'],
   ['Math 1', 'Math 2', 'Math 3', 'Math 4', 'Math 5']
