@@ -1277,58 +1277,61 @@ body {
     display: flex !important;
   }
 
-  /* ==== BOUTONS ARTISTE MODAL ==== */
+ /* ==== BOUTONS ARTISTE MODAL (priorité sur les styles inline) ==== */
 .track .play-btn,
 .track .like-btn,
 .track .add-btn {
-  border: none;
-  background: rgba(255, 255, 255, 0.05);
-  color: #fff;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  font-size: 14px;
-  display: inline-flex;
+  all: unset; /* supprime les styles inline comme font-size/padding */
+  display: inline-flex !important;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 50% !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #fff !important;
+  cursor: pointer !important;
+  transition: all 0.25s ease !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3) !important;
+  font-size: 16px !important;
 }
 
-/* Effet au survol */
+/* survol coloré */
 .track .play-btn:hover {
-  background: #1DB954;  /* vert Spotify */
-  color: #000;
+  background: #1DB954 !important;
+  color: #000 !important;
   transform: scale(1.1);
 }
 .track .like-btn:hover {
-  background: #e84393;  /* rose vif */
+  background: #e84393 !important;
   transform: scale(1.1);
 }
 .track .add-btn:hover {
-  background: #3498db;  /* bleu clair */
+  background: #3498db !important;
   transform: scale(1.1);
 }
 
-/* Effet clic (press) */
+/* clic doux */
 .track .play-btn:active,
 .track .like-btn:active,
 .track .add-btn:active {
   transform: scale(0.95);
 }
 
-/* Icônes Font Awesome plus nettes */
+/* icônes Font Awesome centrées */
 .track .play-btn i,
 .track .like-btn i,
 .track .add-btn i {
   pointer-events: none;
+  font-size: 16px !important;
 }
+
 
 
  
   
 }
+
 
 
 
