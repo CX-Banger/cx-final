@@ -96,9 +96,26 @@
                 <span class="chip">2025</span>
               </div>
             </div>
+            <div class="hero-platforms">
+              <div class="hero-platforms-label">Disponible sur</div>
+              <div class="hero-platforms-icons">
+                <a href="https://open.spotify.com" target="_blank" rel="noopener" title="Spotify" class="platform-icon">
+                  <i class="fab fa-spotify"></i>
+                </a>
+                <a href="https://music.apple.com" target="_blank" rel="noopener" title="Apple Music" class="platform-icon">
+                  <i class="fab fa-apple"></i>
+                </a>
+                <a href="https://www.deezer.com" target="_blank" rel="noopener" title="Deezer" class="platform-icon">
+                  <i class="fab fa-deezer"></i>
+                </a>
+                <a href="https://music.youtube.com" target="_blank" rel="noopener" title="YouTube Music" class="platform-icon">
+                  <i class="fab fa-youtube"></i>
+                </a>
+              </div>
+            </div>
           </div>
 </br> <!-- saut de ligne entre la une et les artistes -->
-          <h3>Artistes</h3>
+          <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 14px;">Artistes</h3>
           <div id="artistsGrid" class="grid artists-grid"></div>
 
           <div class="featured-section">
@@ -178,59 +195,62 @@
 
     <!-- Full Player (expanded state) -->
     <div class="full-player" id="fullPlayer">
-      <div class="full-player-header">
-        <button id="closeFullPlayer" class="close-player-btn">
-          <i class="fas fa-chevron-down"></i>
-        </button>
-        <span class="player-header-title">En lecture</span>
-        <button id="playerMenuBtn" class="player-menu-btn">
-          <i class="fas fa-ellipsis-h"></i>
-        </button>
-      </div>
-
-      <div class="full-player-content">
-        <div class="full-player-cover-wrapper">
-          <img id="fullPlayerCover" class="full-player-cover" src="" alt="cover" />
+      <div class="full-player-scrollable" id="fullPlayerScrollable">
+        <div class="full-player-header">
+          <button id="closeFullPlayer" class="close-player-btn">
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <span class="player-header-title" id="headerTitleSticky">En lecture</span>
+          <button id="playerMenuBtn" class="player-menu-btn">
+            <i class="fas fa-ellipsis-h"></i>
+          </button>
         </div>
 
-        <div class="full-player-info">
-          <div class="full-player-meta">
-            <h2 id="fullPlayerTitle" class="full-player-song-title">—</h2>
-            <p id="fullPlayerArtist" class="full-player-artist-name">—</p>
-          </div>
+        <div class="full-player-cover-wrapper" id="fullPlayerCoverWrapper">
+          <img id="fullPlayerCover" class="full-player-cover" src="" alt="cover" />
 
-          <div class="full-player-controls">
-            <div class="progress-section">
-              <input id="fullProgress" type="range" min="0" max="100" value="0" class="full-progress-bar" />
-              <div class="progress-time">
-                <span id="fullCurrentTime">0:00</span>
-                <span id="fullDurationTime">0:00</span>
+          <div class="full-player-info-overlay" id="fullPlayerInfoFixed">
+            <div class="full-player-meta">
+              <h2 id="fullPlayerTitle" class="full-player-song-title">—</h2>
+              <p id="fullPlayerArtist" class="full-player-artist-name">—</p>
+            </div>
+
+            <div class="full-player-controls">
+              <div class="progress-section">
+                <input id="fullProgress" type="range" min="0" max="100" value="0" class="full-progress-bar" />
+                <div class="progress-time">
+                  <span id="fullCurrentTime">0:00</span>
+                  <span id="fullDurationTime">0:00</span>
+                </div>
+              </div>
+
+              <div class="main-controls">
+                <button id="fullShuffleBtn" class="control-btn shuffle-btn">
+                  <i class="fas fa-random"></i>
+                </button>
+                <button id="fullPrevBtn" class="control-btn">
+                  <i class="fas fa-step-backward"></i>
+                </button>
+                <button id="fullPlayPauseBtn" class="control-btn play-pause-main">
+                  <i class="fas fa-play"></i>
+                </button>
+                <button id="fullNextBtn" class="control-btn">
+                  <i class="fas fa-step-forward"></i>
+                </button>
+                <button id="fullRepeatBtn" class="control-btn repeat-btn">
+                  <i class="fas fa-redo"></i>
+                </button>
               </div>
             </div>
-
-            <div class="main-controls">
-              <button id="fullShuffleBtn" class="control-btn shuffle-btn">
-                <i class="fas fa-random"></i>
-              </button>
-              <button id="fullPrevBtn" class="control-btn">
-                <i class="fas fa-step-backward"></i>
-              </button>
-              <button id="fullPlayPauseBtn" class="control-btn play-pause-main">
-                <i class="fas fa-play"></i>
-              </button>
-              <button id="fullNextBtn" class="control-btn">
-                <i class="fas fa-step-forward"></i>
-              </button>
-              <button id="fullRepeatBtn" class="control-btn repeat-btn">
-                <i class="fas fa-redo"></i>
-              </button>
-            </div>
-
           </div>
+        </div>
+
+        <div class="lyrics-preview" id="lyricsPreview">
+          <span class="lyrics-preview-text">Paroles</span>
+          <i class="fas fa-chevron-up"></i>
         </div>
 
         <div class="lyrics-section" id="lyricsSection">
-          <h3 class="lyrics-title">Paroles</h3>
           <div class="lyrics-content" id="lyricsContent">
             <p class="lyrics-placeholder">Les paroles ne sont pas encore disponibles pour ce titre.</p>
           </div>
