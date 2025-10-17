@@ -10,12 +10,14 @@ const GITHUB_BASE_URL = 'https://raw.githubusercontent.com/CX-Banger/cx-final-mu
 // URL de base pour les fichiers audio hébergés sur Supabase Storage
 const SUPABASE_STORAGE_URL = 'https://hrzmagjjobctkfxayokt.supabase.co/storage/v1/object/public/sons/';
 
+// URL de base pour les paroles hébergées sur GitHub
+const LYRICS_BASE_URL = 'https://raw.githubusercontent.com/CX-Banger/cx-muzik/main/media/lyrics';
+
 /* === Données artistes (basées sur ton premier code) === */
 const artistNames = ['NAN', 'Synaï', 'Elihem', 'Sara', 'Eilynn', 'Melohim', 'Tiim', 'Math'];
 const trackTitles = [
-  ['Olala', 'Obsédé', 'Etoile', 'Parapluie', 'Love Story', 'Bande', 'Epitre Au Monde #1', 'Mieux', 'Alchimie', 'Compassion', 'Génant', 'Techiyá', 'Kesse', 'Psaumes 151', 'Pourquoi', 'Dispo', 'En Tout Temps', 
-   'Génération', 'Favelas', 'Chemin ft Elihem'],
-  ['YHWH', 'Freestyle Pour Dieu', 'Zinzin', 'Choisir Papa', 'Le Temps', 'Une Question...', 'Papa Yahweh ft Eilynn', 'Saisir les Bases', 'Dessin', 'Cri du Coeur ft Sara', 'Chargeur Plein'],
+  ['Olala', 'Obsédé', 'Etoile', 'Parapluie', 'Love Story', 'Bande', 'Epitre Au Monde #1', 'Mieux', 'Alchimie', 'Compassion', 'Génant', 'Techiyá', 'Kesse', 'Psaumes 151', 'Pourquoi', 'Dispo', 'Je pense à toi'],
+  ['YHWH', 'Freestyle Pour Dieu', 'Zinzin', 'Choisir Papa', 'Le Temps', 'Une Question...', 'Papa Yahweh ft Eilynn', 'Saisir les Bases', 'Dessin'],
   ['In God', 'Visé', 'Minimum', 'Can you hear me ?', 'Evidemment'],
   ['Grâce infinie', 'Tentation', 'Dis moi ft Eilynn', 'Evangéliser'],
   ['Cendrillon', 'Nouveau Départ'],
@@ -136,11 +138,11 @@ function renderFeatured(){
     { title: "Olala", artist: "NAN", year: "NAN", cover: `${GITHUB_BASE_URL}/media/artiste1/cover1.jpg`, artistIndex: 0 },
     { title: "YHWH", artist: "Synaï", year: "Synaï", cover: `${GITHUB_BASE_URL}/media/artiste2/cover1.jpg`, artistIndex: 1 },
     { title: "In God", artist: "Elihem", year: "Elihem", cover: `${GITHUB_BASE_URL}/media/artiste3/cover1.jpg`, artistIndex: 2 },
-    { title: "Grâce infinie", artist: "Sara", year: "Sara", cover: `${GITHUB_BASE_URL}/media/artiste4/cover1.jpg`, artistIndex: 3 },
-    { title: "Cendrillon", artist: "Eilynn", year: "Eilynn", cover: `${GITHUB_BASE_URL}/media/artiste5/cover1.jpg`, artistIndex: 4 },
-    { title: "Melohim 1", artist: "Melohim", year: "Melohim", cover: `${GITHUB_BASE_URL}/media/artiste6/cover1.jpg`, artistIndex: 5 },
-    { title: "Tiim 1", artist: "Tiim", year: "Tiim", cover: `${GITHUB_BASE_URL}/media/artiste7/cover1.jpg`, artistIndex: 6 },
-    { title: "Math 1", artist: "Math", year: "Math", cover: `${GITHUB_BASE_URL}/media/artiste8/cover1.jpg`, artistIndex: 7 }
+    { title: "Sara 1", artist: "Sara", year: "2025", cover: `${GITHUB_BASE_URL}/media/artiste4/cover1.jpg`, artistIndex: 3 },
+    { title: "Cendrillon", artist: "Eilynn", year: "2025", cover: `${GITHUB_BASE_URL}/media/artiste5/cover1.jpg`, artistIndex: 4 },
+    { title: "Melohim 1", artist: "Melohim", year: "2025", cover: `${GITHUB_BASE_URL}/media/artiste6/cover1.jpg`, artistIndex: 5 },
+    { title: "Tiim 1", artist: "Tiim", year: "2025", cover: `${GITHUB_BASE_URL}/media/artiste7/cover1.jpg`, artistIndex: 6 },
+    { title: "Math 1", artist: "Math", year: "2025", cover: `${GITHUB_BASE_URL}/media/artiste8/cover1.jpg`, artistIndex: 7 }
   ];
 
   featuredAlbums.forEach((album, idx) => {
@@ -176,10 +178,10 @@ function renderFeatured(){
 /* ===== Upcoming ===== */
 function renderUpcoming(){
   upcomingDiv.innerHTML = `
-    <div class="album-item">
-      <img src="https://github.com/CX-Banger/cx-muzik/blob/main/media/sorties/avenir.jpg?raw=true" alt="upcoming">
-      <div class="title">The King</div>
-      <div class="artist">SYNAI ft. Elihem</div>
+    <div class="featured-album">
+      <img src="https://github.com/CX-Banger/cx-muzik/blob/main/media/sorties/avenir.jpg?raw=true" class="featured-album-cover" alt="The King">
+      <div class="featured-album-title">The King</div>
+      <div class="featured-album-year">SYNAI ft. Elihem</div>
     </div>
   `;
 } /* mettre le nom de l'album : <div class="title">nom_album </div> :)
@@ -387,6 +389,72 @@ function resolveSrc(src){
   return src;
 }
 
+/* ===== Lyrics Loading ===== */
+async function loadLyrics(track) {
+  const lyricsContentDiv = document.getElementById('lyricsContent');
+
+  if (!lyricsContentDiv) return;
+
+  lyricsContentDiv.innerHTML = '<p class="lyrics-placeholder">Chargement des paroles...</p>';
+
+  try {
+    const artistIndex = artists.findIndex(a =>
+      a.tracks.some(t => t.title === track.title)
+    );
+
+    if (artistIndex === -1) {
+      lyricsContentDiv.innerHTML = '<p class="lyrics-placeholder">Les paroles ne sont pas encore disponibles pour ce titre.</p>';
+      return;
+    }
+
+    const artist = artists[artistIndex];
+    const trackIndex = artist.tracks.findIndex(t => t.title === track.title);
+
+    if (trackIndex === -1) {
+      lyricsContentDiv.innerHTML = '<p class="lyrics-placeholder">Les paroles ne sont pas encore disponibles pour ce titre.</p>';
+      return;
+    }
+
+    const lyricsUrl = `${LYRICS_BASE_URL}/artiste${artistIndex + 1}/son${trackIndex + 1}.json`;
+
+    const response = await fetch(lyricsUrl);
+
+    if (!response.ok) {
+      lyricsContentDiv.innerHTML = '<p class="lyrics-placeholder">Les paroles ne sont pas encore disponibles pour ce titre.</p>';
+      return;
+    }
+
+    const lyricsData = await response.json();
+
+    let lyricsHTML = '';
+
+    if (lyricsData.lyrics && Array.isArray(lyricsData.lyrics)) {
+      lyricsHTML = lyricsData.lyrics
+        .map(line => line === '' ? '<br>' : `<p>${line}</p>`)
+        .join('');
+    } else if (lyricsData.sections && Array.isArray(lyricsData.sections)) {
+      lyricsHTML = lyricsData.sections
+        .map(section => {
+          const sectionClass = section.type ? `lyrics-${section.type}` : '';
+          const lines = section.lines
+            .map(line => `<p class="${sectionClass}">${line}</p>`)
+            .join('');
+          return lines;
+        })
+        .join('<br>');
+    } else {
+      lyricsContentDiv.innerHTML = '<p class="lyrics-placeholder">Format de paroles non reconnu.</p>';
+      return;
+    }
+
+    lyricsContentDiv.innerHTML = lyricsHTML || '<p class="lyrics-placeholder">Les paroles ne sont pas encore disponibles pour ce titre.</p>';
+
+  } catch (error) {
+    console.error('Erreur lors du chargement des paroles:', error);
+    lyricsContentDiv.innerHTML = '<p class="lyrics-placeholder">Les paroles ne sont pas encore disponibles pour ce titre.</p>';
+  }
+}
+
 function loadTrack(i){
   const t = playlist[i];
   if(!t) return;
@@ -401,6 +469,7 @@ function loadTrack(i){
     updateFullPlayerUI();
   }
 
+  loadLyrics(t);
   saveLastPlayed();
 }
 
@@ -432,7 +501,7 @@ if (heroArt) {
   heroArt.addEventListener('click', () => {
     const obsedeSong = {
       title: 'Obsédé',
-      artist: 'NAN',
+      artist: 'NAN(Rap-Gospel)',
       src: 'https://hrzmagjjobctkfxayokt.supabase.co/storage/v1/object/public/sons/artiste1/son2.mp3',
       thumb: `${GITHUB_BASE_URL}/media/artiste1/cover2.jpg`
     };
