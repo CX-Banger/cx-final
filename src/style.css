@@ -1277,60 +1277,64 @@ body {
     display: flex !important;
   }
 
- /* ==== BOUTONS ARTISTE MODAL (priorité sur les styles inline) ==== */
+/* ==== BOUTONS MODAL ARTISTE (version compacte) ==== */
 .track .play-btn,
 .track .like-btn,
 .track .add-btn {
-  all: unset; /* supprime les styles inline comme font-size/padding */
+  all: unset;
   display: inline-flex !important;
   align-items: center;
   justify-content: center;
-  width: 36px !important;
-  height: 36px !important;
+  width: 26px !important;
+  height: 26px !important;
   border-radius: 50% !important;
   background: rgba(255, 255, 255, 0.08) !important;
   color: #fff !important;
   cursor: pointer !important;
   transition: all 0.25s ease !important;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3) !important;
-  font-size: 16px !important;
+  font-size: 13px !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 /* survol coloré */
 .track .play-btn:hover {
   background: #1DB954 !important;
   color: #000 !important;
-  transform: scale(1.1);
+  transform: scale(1.15);
 }
 .track .like-btn:hover {
   background: #e84393 !important;
-  transform: scale(1.1);
+  transform: scale(1.15);
 }
 .track .add-btn:hover {
   background: #3498db !important;
-  transform: scale(1.1);
+  transform: scale(1.15);
 }
 
-/* clic doux */
+/* effet clic */
 .track .play-btn:active,
 .track .like-btn:active,
 .track .add-btn:active {
-  transform: scale(0.95);
+  transform: scale(0.9);
 }
 
-/* icônes Font Awesome centrées */
+/* icônes centrées */
 .track .play-btn i,
 .track .like-btn i,
 .track .add-btn i {
   pointer-events: none;
-  font-size: 16px !important;
+  font-size: 13px !important;
+  line-height: 1;
 }
+
+
 
 
 
  
   
 }
+
 
 
 
