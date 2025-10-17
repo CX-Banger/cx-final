@@ -1327,6 +1327,18 @@ body {
   line-height: 1;
 }
 
+/* ==== TITRES DES SONS DANS LE MODAL ARTISTE ==== */
+#artistModal .track > div > div > div:first-child {
+  font-size: 13px !important; /* ↓ réduit la taille (par défaut c’est env. 16px) */
+  font-weight: 600;
+  line-height: 1.3;
+  color: #fff;
+}
+#artistModal .track > div > div > div:nth-child(2) {
+  font-size: 11px !important; /* sous-titre (nom artiste) */
+  color: #aaa !important;
+}
+
 
 
 
@@ -1334,6 +1346,7 @@ body {
  
   
 }
+
 
 
 
