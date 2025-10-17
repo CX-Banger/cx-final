@@ -1,1 +1,93 @@
-{"\ufeffSparrows  Jason Gray\n Sparrows  Jason Gray 1                                 \n\nG\nYou can't add a single day by worrying \n                    C                                     Em \nYou'll worry   your life away\nG             C\nOh don't worry your life away\nG\nYou can't change a single thing by freaking out\n      C                                                     Em \nIt's just gonna close you in\nG                  C                                       G\n       Oh don't  let the trouble win\n\nPre-Cborus 1 (notes only)\n \nG     D         Em          G - C\nYou    may        feel    alone\n              G         D   Em    G\tC\nBut you're  not on your own\n\nCborus\nEm         C\nLa, lala, la la lala\n\nG                      D\nIf He can hold the world He can hold this moment\n\nEm         C\nLa, lala, la la lala\n             G                                            D\nNot a field nor flower escapes His notice\nEm         C\n        Oh even the sparrow\nG          D                                G\nKnows He holds tomorrow\n\nVerse 2\n \nG\nLean in and it's hard to miss\nEverything can change\nC\nWhen you make it His\nG         C\n     Oh He wants to carry it\nG\nCarefree in the care of God\nWhen you let it go\n\n\n\n            C\nYou'll find that He's enough 2\nG           C                                 G\nOh you never leave His love\n\nPre-cborus 2 (notes only)\n \nG          D        Em            G     C\n    You don't           walk      alone\nCborus\n \nEm         C\nLa, lala, la la lala\n                 G                                    D\nIf He can hold the world He can hold this moment\nEm        C\nLa, lala, la la lala\n             G                       D\nNot a field nor flower escapes His notice\nEm        C\n       Oh even the sparrow\nG                  D\nKnows He holds tomorrow\nBridge\n                                 Am                     C\nThere's not a single star that's out of place\n              G                              D\nThere's nothing broken He can't remake\n            Am                           C\nIf you long for hope when you're afraid\nG          D\n      Oh look at the sparrow\n\nEm C G D (build)\nLook at the sparrow\n\nCborus\nEm         C\nLa, lala, la la lala\n                 G                                    D\nIf He can hold the world He can hold this moment\nEm         C\nLa, lala, la la lala\n          G                          D\nNot a field nor flower escapes His notice\nEm           C\n         Oh even the sparrow\nG                  D\nKnows He holds tomorrow": null}
+{
+  "title": "Sparrows",
+  "artist": "Jason Gray",
+  "sections": [
+    {
+      "type": "verse",
+      "number": 1,
+      "lines": [
+        "You can't add a single day by worrying",
+        "You'll worry your life away",
+        "Oh don't worry your life away",
+        "",
+        "You can't change a single thing by freaking out",
+        "It's just gonna close you in",
+        "Oh don't let the trouble win"
+      ]
+    },
+    {
+      "type": "pre-chorus",
+      "number": 1,
+      "lines": [
+        "You may feel alone",
+        "But you're not on your own"
+      ]
+    },
+    {
+      "type": "chorus",
+      "lines": [
+        "La, lala, la la lala",
+        "If He can hold the world He can hold this moment",
+        "La, lala, la la lala",
+        "Not a field nor flower escapes His notice",
+        "Oh even the sparrow",
+        "Knows He holds tomorrow"
+      ]
+    },
+    {
+      "type": "verse",
+      "number": 2,
+      "lines": [
+        "Lean in and it's hard to miss",
+        "Everything can change",
+        "When you make it His",
+        "Oh He wants to carry it",
+        "",
+        "Carefree in the care of God",
+        "When you let it go",
+        "You'll find that He's enough",
+        "Oh you never leave His love"
+      ]
+    },
+    {
+      "type": "pre-chorus",
+      "number": 2,
+      "lines": [
+        "You don't walk alone"
+      ]
+    },
+    {
+      "type": "chorus",
+      "lines": [
+        "La, lala, la la lala",
+        "If He can hold the world He can hold this moment",
+        "La, lala, la la lala",
+        "Not a field nor flower escapes His notice",
+        "Oh even the sparrow",
+        "Knows He holds tomorrow"
+      ]
+    },
+    {
+      "type": "bridge",
+      "lines": [
+        "There's not a single star that's out of place",
+        "There's nothing broken He can't remake",
+        "If you long for hope when you're afraid",
+        "Oh look at the sparrow",
+        "",
+        "Look at the sparrow"
+      ]
+    },
+    {
+      "type": "chorus",
+      "lines": [
+        "La, lala, la la lala",
+        "If He can hold the world He can hold this moment",
+        "La, lala, la la lala",
+        "Not a field nor flower escapes His notice",
+        "Oh even the sparrow",
+        "Knows He holds tomorrow"
+      ]
+    }
+  ]
+}
