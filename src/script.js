@@ -16,7 +16,7 @@ const LYRICS_BASE_URL = 'https://raw.githubusercontent.com/CX-Banger/cx-muzik/ma
 /* === Données artistes (basées sur ton premier code) === */
 const artistNames = ['NAN', 'Synaï', 'Elihem', 'Sara', 'Eilynn', 'Melohim', 'Tiim', 'Math'];
 const trackTitles = [
-  ['Olala', 'Obsédé', 'Etoile', 'Parapluie', 'Love Story', 'Bande', 'Epitre Au Monde #1', 'Mieux', 'Alchimie', 'Compassion', 'Génant', 'Techiyá', 'Kesse', 'Psaumes 151', 'Pourquoi', 'Dispo', 'Je pense à toi', 
+  ['Olala', 'Obsédé', 'Etoile', 'Parapluie', 'Love Story', 'Bande', 'Epitre Au Monde #1', 'Mieux', 'Alchimie', 'Compassion', 'Génant', 'Techiyá', 'Kesse', 'Psaumes 151', 'Pourquoi', 'Dispo', 'En Tout Temps', 
   'Génération', 'Favelas', 'Chemin ft Elihem'],
   ['YHWH', 'Freestyle Pour Dieu', 'Zinzin', 'Choisir Papa', 'Le Temps', 'Une Question...', 'Papa Yahweh ft Eilynn', 'Saisir les Bases', 'Dessin', 'Cri du Coeur ft Sara', 'Chargeur Plein'],
   ['In God', 'Visé', 'Minimum', 'Can you hear me ?', 'Evidemment'],
@@ -139,11 +139,11 @@ function renderFeatured(){
     { title: "Olala", artist: "NAN", year: "NAN", cover: `${GITHUB_BASE_URL}/media/artiste1/cover1.jpg`, artistIndex: 0 },
     { title: "YHWH", artist: "Synaï", year: "Synaï", cover: `${GITHUB_BASE_URL}/media/artiste2/cover1.jpg`, artistIndex: 1 },
     { title: "In God", artist: "Elihem", year: "Elihem", cover: `${GITHUB_BASE_URL}/media/artiste3/cover1.jpg`, artistIndex: 2 },
-    { title: "Sara 1", artist: "Sara", year: "2025", cover: `${GITHUB_BASE_URL}/media/artiste4/cover1.jpg`, artistIndex: 3 },
-    { title: "Cendrillon", artist: "Eilynn", year: "2025", cover: `${GITHUB_BASE_URL}/media/artiste5/cover1.jpg`, artistIndex: 4 },
-    { title: "Melohim 1", artist: "Melohim", year: "2025", cover: `${GITHUB_BASE_URL}/media/artiste6/cover1.jpg`, artistIndex: 5 },
-    { title: "Tiim 1", artist: "Tiim", year: "2025", cover: `${GITHUB_BASE_URL}/media/artiste7/cover1.jpg`, artistIndex: 6 },
-    { title: "Math 1", artist: "Math", year: "2025", cover: `${GITHUB_BASE_URL}/media/artiste8/cover1.jpg`, artistIndex: 7 }
+    { title: "Grâce Infinie", artist: "Sara", year: "Sara", cover: `${GITHUB_BASE_URL}/media/artiste4/cover1.jpg`, artistIndex: 3 },
+    { title: "Cendrillon", artist: "Eilynn", year: "Eilynn", cover: `${GITHUB_BASE_URL}/media/artiste5/cover1.jpg`, artistIndex: 4 },
+    { title: "Melohim 1", artist: "Melohim", year: "Melohim", cover: `${GITHUB_BASE_URL}/media/artiste6/cover1.jpg`, artistIndex: 5 },
+    { title: "Tiim 1", artist: "Tiim", year: "Tiim", cover: `${GITHUB_BASE_URL}/media/artiste7/cover1.jpg`, artistIndex: 6 },
+    { title: "Math 1", artist: "Math", year: "Math", cover: `${GITHUB_BASE_URL}/media/artiste8/cover1.jpg`, artistIndex: 7 }
   ];
 
   featuredAlbums.forEach((album, idx) => {
