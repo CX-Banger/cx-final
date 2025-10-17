@@ -1339,6 +1339,58 @@ body {
   color: #aaa !important;
 }
 
+/* ==== ALIGNEMENT DES BOUTONS DANS LE MODAL ARTISTE ==== */
+#artistModal .track {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.02);
+  margin-bottom: 4px;
+  gap: 10px;
+}
+
+/* bloc gauche (cover + titre + artiste) */
+#artistModal .track > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1 1 auto; /* occupe tout l’espace restant */
+  min-width: 0; /* pour éviter que les titres longs débordent */
+}
+
+/* texte titre + artiste */
+#artistModal .track > div:first-child > div {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+#artistModal .track > div:first-child > div > div:first-child {
+  font-size: 13px !important;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#artistModal .track > div:first-child > div > div:nth-child(2) {
+  font-size: 11px !important;
+  color: #aaa;
+}
+
+/* bloc boutons */
+#artistModal .track > div:last-child {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+  width: 100px; /* largeur fixe pour tous les boutons */
+  justify-content: flex-end;
+}
+
+
 
 
 
@@ -1346,6 +1398,7 @@ body {
  
   
 }
+
 
 
 
