@@ -1276,27 +1276,8 @@ body {
   #repeatBtn {
     display: flex !important;
   }
-  .track button {
-  border: none;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(4px);
-  color: white;
-  font-size: 15px;
-  padding: 6px 10px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.25s ease;
+  
 }
 
-.track button:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: scale(1.1);
-}
-
-.play-btn i { color: #1DB954; } /* vert Spotify */
-.like-btn i { color: #ff4b7d; }
-.add-btn i { color: #58a6ff; }
-
-}
 
 
