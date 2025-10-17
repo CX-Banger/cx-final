@@ -28,9 +28,14 @@ const menuAddToPlaylistBtn = document.getElementById('menuAddToPlaylistBtn');
 
 const bottomNav = document.getElementById('bottomNav');
 const lyricsContent = document.getElementById('lyricsContent');
+const fullPlayerScrollable = document.getElementById('fullPlayerScrollable');
+const fullPlayerCoverWrapper = document.getElementById('fullPlayerCoverWrapper');
+const fullPlayerHeader = document.querySelector('.full-player-header');
+const lyricsPreview = document.getElementById('lyricsPreview');
 
 let isPlaying = false;
 let isFullPlayerOpen = false;
+let lastScrollY = 0;
 
 function showMiniPlayer() {
   miniPlayer.classList.add('visible');
@@ -54,6 +59,18 @@ function closeFullPlayer() {
   fullPlayer.classList.remove('active');
   if (bottomNav) {
     bottomNav.classList.remove('hidden');
+  }
+  if (fullPlayerScrollable) {
+    fullPlayerScrollable.scrollTop = 0;
+  }
+  if (fullPlayerCoverWrapper) {
+    fullPlayerCoverWrapper.classList.remove('shrunk');
+  }
+  if (fullPlayerHeader) {
+    fullPlayerHeader.classList.remove('scrolled');
+  }
+  if (lyricsPreview) {
+    lyricsPreview.classList.remove('expanded');
   }
 }
 
@@ -260,6 +277,9 @@ audio.addEventListener('timeupdate', () => {
   const pct = (audio.currentTime / audio.duration) * 100;
   fullProgress.value = pct;
 
+  const progressFill = `linear-gradient(to right, #1DB954 0%, #1DB954 ${pct}%, #404040 ${pct}%, #404040 100%)`;
+  fullProgress.style.background = progressFill;
+
   fullCurrentTime.textContent = formatTime(audio.currentTime);
   fullDurationTime.textContent = formatTime(audio.duration);
 });
@@ -305,6 +325,62 @@ function formatTime(s) {
   const m = Math.floor(s / 60);
   const sec = Math.floor(s % 60);
   return `${m}:${String(sec).padStart(2, '0')}`;
+}
+
+if (fullPlayerScrollable) {
+  fullPlayerScrollable.addEventListener('scroll', () => {
+    const scrollY = fullPlayerScrollable.scrollTop;
+    const coverHeight = fullPlayerCoverWrapper ? fullPlayerCoverWrapper.offsetHeight : 0;
+    const threshold = 100;
+
+    if (scrollY > threshold) {
+      if (fullPlayerCoverWrapper) {
+        fullPlayerCoverWrapper.classList.add('shrunk');
+      }
+      if (fullPlayerHeader) {
+        fullPlayerHeader.classList.add('scrolled');
+      }
+      if (lyricsPreview) {
+        lyricsPreview.classList.add('expanded');
+      }
+    } else {
+      if (fullPlayerCoverWrapper) {
+        fullPlayerCoverWrapper.classList.remove('shrunk');
+      }
+      if (fullPlayerHeader) {
+        fullPlayerHeader.classList.remove('scrolled');
+      }
+      if (lyricsPreview) {
+        lyricsPreview.classList.remove('expanded');
+      }
+    }
+
+    const coverOpacity = Math.max(0, 1 - (scrollY / coverHeight));
+    if (fullPlayerCoverWrapper) {
+      fullPlayerCoverWrapper.style.opacity = coverOpacity;
+    }
+
+    lastScrollY = scrollY;
+  });
+}
+
+if (lyricsPreview) {
+  lyricsPreview.addEventListener('click', () => {
+    if (lyricsPreview.classList.contains('expanded')) {
+      fullPlayerScrollable.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    } else {
+      if (fullPlayerScrollable) {
+        const coverHeight = fullPlayerCoverWrapper ? fullPlayerCoverWrapper.offsetHeight : 0;
+        fullPlayerScrollable.scrollTo({
+          top: coverHeight,
+          behavior: 'smooth'
+        });
+      }
+    }
+  });
 }
 
 window.updateMiniPlayer = updateMiniPlayer;
