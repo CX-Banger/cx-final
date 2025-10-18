@@ -77,12 +77,10 @@ Styles de l'application:
 ## Technologies
 
 - **Frontend**: HTML5, CSS3, JavaScript vanilla
-- **Build**: Vite
 - **Storage**:
   - Supabase (audio)
-  - GitHub (images et paroles)
-  - LocalStorage (données utilisateur)
-- **Icons**: Font Awesome 6
+  - GitHub (images, paroles et données artiste)
+- **Icons**: Font Awesome
 - **Fonts**: Inter (Google Fonts)
 
 ## Configuration des Ressources
@@ -125,14 +123,6 @@ Format de stockage dans LocalStorage:
   ],
   "Ma Playlist": [...]
 }
-```
-
-## Scripts Disponibles
-
-```bash
-npm run dev      # Lancer le serveur de développement
-npm run build    # Construire pour la production
-npm run preview  # Prévisualiser le build de production
 ```
 
 ## Design
