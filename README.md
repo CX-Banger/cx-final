@@ -26,7 +26,7 @@ Application web de streaming musical moderne avec gestion de playlists, système
 ### URLs de Base
 ```javascript
 // Images et covers - GitHub
-const GITHUB_BASE_URL = 'https://raw.githubusercontent.com/CX-Banger/cx-final-muzikly/main';
+const GITHUB_BASE_URL = 'https://raw.githubusercontent.com/CX-Banger/cx-muzik/main';
 
 // Audio - Supabase Storage
 const SUPABASE_STORAGE_URL = 'https://hrzmagjjobctkfxayokt.supabase.co/storage/v1/object/public/sons/';
