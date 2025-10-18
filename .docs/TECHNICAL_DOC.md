@@ -1,12 +1,22 @@
 ## Structure du Projet
 
-```
-project/
-├── index.html           # Structure HTML principale
-└── src/
-    ├── style.css       # Styles CSS de l'application
-    ├── script.js       # Logique principale (navigation, playlists, recherche)
-    └── player.js       # Lecteur audio et contrôles de lecture
+```bash
+/index.html               <-- Structure HTML principale
+/logo.svg                 <-- Logo principale de Connexion banger
+/README.md                <-- Documentation du site
+/assets/                  <-- Dossier ressources par defaut
+/src/                     <-- fichier static
+    ├── script.js         <-- Algorithmes Logique principale (navigation, playlists, recherche)
+    ├── player.js         <-- Lecteur audio et contrôles de lecture
+    ├── style.css         <-- Styles CSS de l'application
+/.docs/                   <-- Documentation 
+    ├── notice.txt        <-- Notice d'utilisation 
+/img/                     <-- Photos, illustrations, vidéos, sons…
+    ├── mockup.png        <-- Captures d'ecrans ...
+/libs/                    <-- Ressources réutilisables ou fichiers du projet.
+    ├── resources         <-- badges, logos etc...
+/media/                   <-- Dossier contenant les données des artistes
+    ├── artistes          <-- covers, sons, lyrics, etc.
 ```
 
 ## Fichiers Principaux
