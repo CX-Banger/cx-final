@@ -1,15 +1,8 @@
-# Muzikly - ConnexionBanger
-
-Application web de streaming musical moderne avec gestion de playlists, système de likes et lecteur audio complet.
-
 ## Structure du Projet
 
 ```
 project/
 ├── index.html           # Structure HTML principale
-├── package.json         # Dépendances et scripts npm
-├── .env                 # Variables d'environnement (Supabase)
-├── .gitignore          # Fichiers à ignorer par Git
 └── src/
     ├── style.css       # Styles CSS de l'application
     ├── script.js       # Logique principale (navigation, playlists, recherche)
