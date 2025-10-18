@@ -3,7 +3,7 @@ Application web de streaming musical moderne avec gestion de playlists, système
 
 ## Structure du dépot
 ```bash
-/index.html               <-- La page principale du site (page)
+/index.html               <-- Structure HTML principale
 /logo.svg                 <-- Logo principale de Connexion banger
 /README.md                <-- Documentation du site
 /assets/                  <-- Dossier ressources par defaut
