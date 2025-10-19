@@ -22,7 +22,7 @@ const trackTitles = [
   ['In God', 'Visé', 'Minimum', 'Can you hear me ?', 'Evidemment'],
   ['Louange à Mon Dieu', 'Tentation', 'Dis moi ft Eilynn', 'Evangéliser'],
   ['Cendrillon', 'Nouveau Départ'],
-  ['Melohim 1', 'Melohim 2', 'Melohim 3'],
+  ['Ma Carrière', 'Porter Du Fruit', 'Mourir à moi même', 'Mon Histoire', '10.10.2025'],
   ['Tiim 1', 'Tiim 2'],
   ['Math 1', 'Math 2', 'Math 3', 'Math 4', 'Math 5']
 ];
@@ -48,7 +48,7 @@ const albums = [
   { title:'In God', artist:'Elihem', image:'https://i.pinimg.com/236x/2c/23/17/2c2317fb606f8dad772f8b2a63dc1b07.jpg', audio:'https://hrzmagjjobctkfxayokt.supabase.co/storage/v1/object/public/sons/artiste%203/son1.mp3' },
   { title:'Sara 1', artist:'Sara', image:'https://i.pinimg.com/236x/2c/23/17/2c2317fb606f8dad772f8b2a63dc1b07.jpg', audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3' },
   { title:'Cendrillon', artist:'Kalynn', image:'https://github.com/CX-Banger/profile-page-artiste/blob/main/assets/disque.jpg?raw=true', audio:'https://hrzmagjjobctkfxayokt.supabase.co/storage/v1/object/public/sons/artiste%205/son1.mp3' },
-  { title:'Melohim (Remix)', artist:'Melohim', image:'https://github.com/CX-Banger/profile-page-artiste/blob/main/assets/disque.jpg?raw=true', audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3' },
+  { title:'Ma Carrière', artist:'Melohim', image:'https://github.com/CX-Banger/profile-page-artiste/blob/main/assets/disque.jpg?raw=true', audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3' },
   { title:'Tiim 1', artist:'Tiim', image:'https://github.com/CX-Banger/profile-page-artiste/blob/main/assets/disque.jpg?raw=true', audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3' },
   { title:'Math 1', artist:'Math', image:'https://github.com/CX-Banger/profile-page-artiste/blob/main/assets/disque.jpg?raw=true', audio:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3' }
 ];
@@ -141,7 +141,7 @@ function renderFeatured(){
     { title: "In God", artist: "Elihem", year: "Elihem", cover: `${GITHUB_BASE_URL}/media/artiste3/cover1.jpg`, artistIndex: 2 },
     { title: "Louange à Mon Dieu", artist: "Sara", year: "Sara", cover: `${GITHUB_BASE_URL}/media/artiste4/cover1.jpg`, artistIndex: 3 },
     { title: "Cendrillon", artist: "Eilynn", year: "Eilynn", cover: `${GITHUB_BASE_URL}/media/artiste5/cover1.jpg`, artistIndex: 4 },
-    { title: "Melohim 1", artist: "Melohim", year: "Melohim", cover: `${GITHUB_BASE_URL}/media/artiste6/cover1.jpg`, artistIndex: 5 },
+    { title: "Ma Carrière", artist: "Melohim", year: "Melohim", cover: `${GITHUB_BASE_URL}/media/artiste6/cover1.jpg`, artistIndex: 5 },
     { title: "Tiim 1", artist: "Tiim", year: "Tiim", cover: `${GITHUB_BASE_URL}/media/artiste7/cover1.jpg`, artistIndex: 6 },
     { title: "Math 1", artist: "Math", year: "Math", cover: `${GITHUB_BASE_URL}/media/artiste8/cover1.jpg`, artistIndex: 7 }
   ];
