@@ -11,7 +11,7 @@ const GITHUB_BASE_URL = 'https://raw.githubusercontent.com/CX-Banger/cx-final-mu
 const SUPABASE_STORAGE_URL = 'https://hrzmagjjobctkfxayokt.supabase.co/storage/v1/object/public/sons/';
 
 // URL de base pour les paroles hébergées sur GitHub
-const LYRICS_BASE_URL = 'https://raw.githubusercontent.com/CX-Banger/cx-muzik/main/media/lyrics';
+const LYRICS_BASE_URL = 'https://raw.githubusercontent.com/CX-Banger/cx-muzik/main/lyrics';
 
 /* === Données artistes (basées sur ton premier code) === */
 const artistNames = ['NAN', 'Synaï', 'Elihem', 'Sara', 'Eilynn', 'Melohim', 'Tiim', 'Math'];
