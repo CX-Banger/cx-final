@@ -5,7 +5,7 @@
 // Option 1: GitHub Pages (recommandé si activé)
 // const GITHUB_BASE_URL = 'https://cx-banger.github.io/cx-final-muzikly';
 // Option 2: GitHub raw (fallback)
-const GITHUB_BASE_URL = 'https://raw.githubusercontent.com/CX-Banger/cx-muzik/main';
+const GITHUB_BASE_URL = 'https://raw.githubusercontent.com/CX-Banger/cx-final-muzikly/main';
 
 // URL de base pour les fichiers audio hébergés sur Supabase Storage
 const SUPABASE_STORAGE_URL = 'https://hrzmagjjobctkfxayokt.supabase.co/storage/v1/object/public/sons/';
@@ -21,6 +21,7 @@ const trackTitles = [
   ['YHWH', 'Freestyle Pour Dieu', 'Zinzin', 'Choisir Papa', 'Le Temps', 'Une Question...', 'Papa Yahweh ft Eilynn', 'Saisir les Bases', 'Dessin', 'Cri du Coeur ft Sara', 'Chargeur Plein'],
   ['In God', 'Visé', 'Minimum', 'Can you hear me ?', 'Evidemment'],
   ['Louange à Mon Dieu', 'Tentation', 'Dis moi ft Eilynn', 'Evangéliser'],
+  ['Cendrillon', 'Nouveau Départ', 'Victoire ft NAN', 'Ta Présence', 'A chaque jour', 'Je te retrouverai'],
   ['Cendrillon', 'Nouveau Départ', 'Victoire ft NAN', 'Ta Présence', 'A chaque jour', 'Je te retrouverai', 'Flame of Life'],
   ['Ma Carrière', 'Porter Du Fruit', 'Mourir à moi même', 'Mon Histoire', '10.10.2025'],
   ['Tiim 1', 'Tiim 2'],
