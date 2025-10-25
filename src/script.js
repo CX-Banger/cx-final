@@ -31,7 +31,7 @@ const artists = artistNames.map((name,i)=>({
   id:i+1,
   name,
   bio:`${name} `,
-  photo:`${GITHUB_BASE_URL}/media/artist-profiles/${i+1}.jpg`,  // photo de profil depuis GitHub
+  photo:`${GITHUB_BASE_URL}/media/artistes/${i+1}.jpg`,  // photo de profil depuis GitHub
   tracks:trackTitles[i].map((title,j)=>({
     id:`son${j+1}`,
     title,
