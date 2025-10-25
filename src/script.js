@@ -5,7 +5,7 @@
 // Option 1: GitHub Pages (recommandé si activé)
 // const GITHUB_BASE_URL = 'https://cx-banger.github.io/cx-final-muzikly';
 // Option 2: GitHub raw (fallback)
-const GITHUB_BASE_URL = 'https://raw.githubusercontent.com/CX-Banger/cx-final-muzikly/main';
+const GITHUB_BASE_URL = 'https://raw.githubusercontent.com/CX-Banger/cx-muzik/main';
 
 // URL de base pour les fichiers audio hébergés sur Supabase Storage
 const SUPABASE_STORAGE_URL = 'https://hrzmagjjobctkfxayokt.supabase.co/storage/v1/object/public/sons/';
