@@ -500,10 +500,10 @@ const heroArt = document.getElementById('heroArt');
 if (heroArt) {
   heroArt.addEventListener('click', () => {
     const obsedeSong = {
-      title: 'Obsédé',
-      artist: 'NAN',
-      src: 'https://hrzmagjjobctkfxayokt.supabase.co/storage/v1/object/public/sons/artiste1/son2.mp3',
-      thumb: `${GITHUB_BASE_URL}/media/artiste1/cover2.jpg`
+      title: 'The King ft Elihem',
+      artist: 'Synaï',
+      src: 'https://hrzmagjjobctkfxayokt.supabase.co/storage/v1/object/public/sons/artiste2/son12.mp3',
+      thumb: `${GITHUB_BASE_URL}/media/artiste2/cover12.jpg`
     };
     playlist = [obsedeSong];
     currentIndex = 0;
