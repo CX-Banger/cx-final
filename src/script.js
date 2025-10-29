@@ -16,8 +16,8 @@ const LYRICS_BASE_URL = 'https://raw.githubusercontent.com/CX-Banger/cx-muzik/ma
 /* === Données artistes (basées sur ton premier code) === */
 const artistNames = ['NAN', 'Synaï', 'Elihem', 'Sara', 'Eilynn', 'Melohim', 'Tiim', 'Math'];
 const trackTitles = [
-  ['Olala', 'Obsédé', 'Etoile', 'Parapluie', 'Love Story', 'Bande', 'Epitre Au Monde #1', 'Mieux', 'Alchimie', 'Compassion', 'Génant', 'Techiyá', 'Kesse', 'Psaumes 151', 'Pourquoi', 'Dispo', 'En Tout Temps', 'Génération', 'Favelas', 'Chemin ft Elihem', 'Sans Effet', 'Je t aime ft Sara'],
-  ['YHWH', 'Freestyle Pour Dieu', 'Zinzin', 'Choisir Papa', 'Le Temps', 'Une Question...', 'Papa Yahweh ft Eilynn', 'Saisir les Bases', 'Dessin', 'Cri du Coeur ft Sara', 'Chargeur Plein', 'The King ft Elihem'],
+  ['Olala', 'Obsédé', 'Etoile', 'Parapluie', 'Love Story', 'Bande', 'Epitre Au Monde #1', 'Mieux', 'Alchimie', 'Compassion', 'Génant', 'Techiyá', 'Kesse', 'Psaumes 151', 'Pourquoi', 'Dispo', 'En Tout Temps', 'Génération', 'Favelas', 'Chemin ft Elihem', 'Sans Effet'],
+  ['YHWH', 'Freestyle Pour Dieu', 'Zinzin', 'Choisir Papa', 'Le Temps', 'Une Question...', 'Papa Yahweh ft Eilynn', 'Saisir les Bases', 'Dessin', 'Cri du Coeur ft Sara', 'Chargeur Plein', 'The King ft Elihem', 'Je t aime ft Sara'],
   ['In God', 'Visé', 'Minimum', 'Can you hear me ?', 'Evidemment'],
   ['Louange à Mon Dieu', 'Tentation', 'Dis moi ft Eilynn', 'Evangéliser'],
   ['Cendrillon', 'Nouveau Départ', 'Victoire ft NAN', 'Ta Présence', 'A chaque jour', 'Je te retrouverai', 'Flame of Life'],
