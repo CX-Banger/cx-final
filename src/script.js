@@ -179,9 +179,9 @@ function renderFeatured(){
 function renderUpcoming(){
   upcomingDiv.innerHTML = `
     <div class="featured-album">
-      <img src="https://github.com/CX-Banger/cx-muzik/blob/main/media/sorties/avenir2.jpg?raw=true" class="featured-album-cover" alt="Je t'aime">
-      <div class="featured-album-title">"Je t'aime"</div>
-      <div class="featured-album-year">Synaï ft Sara - 28/10/2025</div>
+      <img src="media/sorties/avenir0.jpg" alt="A venir">
+      <div class="featured-album-title">"A venir"</div>
+      <div class="featured-album-year">artiste - jj/mm/aaaa</div>
     </div>
   `;
 } /* mettre le nom de l'album : <div class="title">nom_album </div> :)
