@@ -181,7 +181,7 @@ function renderUpcoming(){
   upcomingDiv.innerHTML = `
     <div class="featured-album">
       <img src="media/sorties/avenir0.jpg" alt="A venir">
-      <div class="featured-album-title">"Zone à danger</div>
+      <div class="featured-album-title">Zone à danger</div>
       <div class="featured-album-year">Raph - soon</div>
     </div>
   `;
