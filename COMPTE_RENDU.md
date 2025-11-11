@@ -1,6 +1,5 @@
-# 🧾 Compte rendu & Journal de suivi du projet
----
-## 🗓️ Historique des mises à jour
+Compte rendu 
+Historique des mises à jour
 
 | Date | Auteur | Description des changements | Détails / Fichiers impactés | Remarques |
 |------|---------|-----------------------------|------------------------------|------------|
