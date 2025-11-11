@@ -7,4 +7,4 @@ Compte rendu
 | 2025-11-11 | @paguielng | Correction du système `featuredAlbums` pour l’affichage à la une | `script.js` | Ajustement du chargement dynamique des sons et des covers. |
 | … | … | … | … | … |
 
-> 🧩 *Chaque nouvelle modification du projet doit être inscrite ici dans l’ordre chronologique (du plus récent au plus ancien).* ;)
+> 🧩 *Chaque nouvelle modification du projet sera inscrite ici dans l’ordre chronologique (du plus récent au plus ancien).* ;)
