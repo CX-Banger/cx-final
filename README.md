@@ -13,7 +13,7 @@ Application web de streaming musical moderne avec gestion de playlists, système
     ├── style.css         <-- Styles CSS de l'application
 /.docs/                   <-- Documentation 
     ├── notice.txt        <-- Notice d'utilisation
-/lyrics/                   <-- Paroles
+/lyrics/                  <-- Paroles
 /img/                     <-- Photos, illustrations, vidéos, sons…
     ├── mockup.png        <-- Captures d'ecrans ...
 /libs/                    <-- Ressources réutilisables ou fichiers du projet.
