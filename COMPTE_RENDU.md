@@ -1,4 +1,3 @@
-Compte rendu 
 
 | Date | Auteur | Description des changements | Fichiers | Remarques |
 |------|---------|-----------------------------|------------------------------|------------|
