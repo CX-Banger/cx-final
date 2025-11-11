@@ -502,7 +502,7 @@ if (heroArt) {
   heroArt.addEventListener('click', () => {
     const obsedeSong = {
       title: 'Zone à danger',
-      artist: 'Rapha',
+      artist: 'Raph',
       src: 'https://hrzmagjjobctkfxayokt.supabase.co/storage/v1/object/public/sons/artiste9/son1.mp3',
       thumb: `${GITHUB_BASE_URL}/media/artiste9/cover1.jpg`
     };
