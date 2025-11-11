@@ -1,5 +1,3 @@
-Application web de streaming musical moderne avec gestion de playlists, système de likes et lecteur audio complet.
-
 ## Structure du dépot
 ```bash
 /index.html                       <-- Structure HTML principale
