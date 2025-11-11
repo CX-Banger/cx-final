@@ -182,7 +182,7 @@ function renderFeatured() {
 function renderUpcoming(){
   upcomingDiv.innerHTML = `
     <div class="featured-album">
-      <img src="media/sorties/defaut.jpg" alt="A venir">
+      <img src="libs/avenir.jpg" alt="A venir">
       <div class="featured-album-title">Musique</div>
       <div class="featured-album-year">Artiste - bientot</div>
     </div>
