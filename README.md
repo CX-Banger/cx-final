@@ -34,5 +34,3 @@ const SUPABASE_STORAGE_URL = 'https://hrzmagjjobctkfxayokt.supabase.co/storage/v
 // Paroles - GitHub
 const LYRICS_BASE_URL = 'https://raw.githubusercontent.com/CX-Banger/cx-muzik/main/media/lyrics';
 ```
-
-![Muzikly](https://github.com/CX-Banger/cx-muzikly-1.2/blob/main/img/synai.png?raw=true)
