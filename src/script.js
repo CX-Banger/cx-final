@@ -181,8 +181,8 @@ function renderUpcoming(){
   upcomingDiv.innerHTML = `
     <div class="featured-album">
       <img src="media/sorties/avenir0.jpg" alt="A venir">
-      <div class="featured-album-title">Zone à danger</div>
-      <div class="featured-album-year">Raph - soon</div>
+      <div class="featured-album-title">Musique</div>
+      <div class="featured-album-year">Artiste - bientot</div>
     </div>
   `;
 } /* mettre le nom de l'album : <div class="title">nom_album </div> :)
@@ -501,10 +501,10 @@ const heroArt = document.getElementById('heroArt');
 if (heroArt) {
   heroArt.addEventListener('click', () => {
     const obsedeSong = {
-      title: 'Sé ou épi mwen',
-      artist: 'Eilynn',
-      src: 'https://hrzmagjjobctkfxayokt.supabase.co/storage/v1/object/public/sons/artiste5/son11.mp3',
-      thumb: `${GITHUB_BASE_URL}/media/artiste5/cover11.jpg`
+      title: 'Zone à danger',
+      artist: 'Rapha',
+      src: 'https://hrzmagjjobctkfxayokt.supabase.co/storage/v1/object/public/sons/artiste9/son1.mp3',
+      thumb: `${GITHUB_BASE_URL}/media/artiste9/cover1.jpg`
     };
     playlist = [obsedeSong];
     currentIndex = 0;
