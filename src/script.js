@@ -143,7 +143,7 @@ function renderFeatured() {
     { title: "Je t aime ft Synaï", artist: "Sara", cover: `${GITHUB_BASE_URL}/media/artiste4/cover5.jpg`, artistIndex: 3, trackIndex: 4 },
     { title: "Sans Effet", artist: "NAN", cover: `${GITHUB_BASE_URL}/media/artiste1/cover21.jpg`, artistIndex: 0, trackIndex: 20 },
     { title: "Ma Carrière", artist: "Melohim", cover: `${GITHUB_BASE_URL}/media/artiste6/cover1.jpg`, artistIndex: 5, trackIndex: 0 },
-    { title: "Tiim 1", artist: "Tiim", cover: `${GITHUB_BASE_URL}/media/artiste7/cover1.jpg`, artistIndex: 6, trackIndex: 0 }
+    { title: "Montres moi", artist: "Tiim", cover: `${GITHUB_BASE_URL}/media/artiste7/cover1.jpg`, artistIndex: 6, trackIndex: 0 }
   ];
 
   featuredAlbums.forEach(album => {
