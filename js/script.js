@@ -154,8 +154,8 @@ function renderFeatured() {
   featuredDiv.innerHTML = '';
 
   const featuredAlbums = [
-    { title: "Zone à danger", artist: "Raph", cover: `${GITHUB_BASE_URL}/op/cv/artiste9/cover1.jpg`, artistIndex: 8, trackIndex: 0 },
     { title: "Intro", artist: "Tiim", cover: `${GITHUB_BASE_URL}/op/cv/artiste7/cover2.jpg`, artistIndex: 6, trackIndex: 1 },
+    { title: "Zone à danger", artist: "Raph", cover: `${GITHUB_BASE_URL}/op/cv/artiste9/cover1.jpg`, artistIndex: 8, trackIndex: 0 },
     { title: "Sé ou épi mwen", artist: "Eilynn", cover: `${GITHUB_BASE_URL}/op/cv/artiste5/cover11.jpg`, artistIndex: 4, trackIndex: 10 },
     { title: "Muy Bonito ft Eilynn", artist: "Synaï", cover: `${GITHUB_BASE_URL}/op/cv/artiste2/cover14.jpg`, artistIndex: 1, trackIndex: 13 },
     { title: "The King ft Synaï", artist: "Elihem", cover: `${GITHUB_BASE_URL}/op/cv/artiste3/cover6.jpg`, artistIndex: 2, trackIndex: 5 },
