@@ -23,7 +23,8 @@ const artistsConfig = [
   { name: 'Melohim', bgColor: '#1a3a3a', bgColorHover: '#2a6a6a' },
   { name: 'Tiim', bgColor: '#3a3a1a', bgColorHover: '#6a6a2a' },
   { name: 'Math', bgColor: '#2a3a1a', bgColorHover: '#4a6a2a' },
-  { name: 'Raph', bgColor: '#3a1a1a', bgColorHover: '#6a2a2a' }
+  { name: 'Raph', bgColor: '#3a1a1a', bgColorHover: '#6a2a2a' },
+  { name: 'Demo', bgColor: '#1a1a3a', bgColorHover: '#2a2a6a' }
 ];
 
 const trackTitles = [
@@ -35,7 +36,8 @@ const trackTitles = [
   ['Ma Carrière', 'Porter Du Fruit', 'Mourir à moi même', 'Mon Histoire', '10.10.2025'],
   ['Montres moi', 'Intro'],
   ['Math 1', 'Math 2', 'Math 3', 'Math 4', 'Math 5'],
-  ['Zone à danger', 'Raph2']
+  ['Zone à danger', 'Raph2'],
+  ['A la Fontaine']
 ];
 
 const artists = artistsConfig.map((config, i) => ({
