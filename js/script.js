@@ -521,10 +521,10 @@ const heroArt = document.getElementById('heroArt');
 if (heroArt) {
   heroArt.addEventListener('click', () => {
     const obsedeSong = {
-      title: 'Zone à danger',
-      artist: 'Raph',
-      src: 'https://hrzmagjjobctkfxayokt.supabase.co/storage/v1/object/public/sons/artiste9/son1.mp3',
-      thumb: `${GITHUB_BASE_URL}/op/cv/artiste9/cover1.jpg`
+      title: 'Intro',
+      artist: 'Tiim',
+      src: 'https://hrzmagjjobctkfxayokt.supabase.co/storage/v1/object/public/sons/artiste7/son2.mp3',
+      thumb: `${GITHUB_BASE_URL}/op/cv/artiste7/cover2.jpg`
     };
     playlist = [obsedeSong];
     currentIndex = 0;
