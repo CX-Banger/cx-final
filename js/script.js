@@ -11,7 +11,7 @@ const GITHUB_BASE_URL = 'https://raw.githubusercontent.com/CX-Banger/cx-final-mu
 const SUPABASE_STORAGE_URL = 'https://hrzmagjjobctkfxayokt.supabase.co/storage/v1/object/public/sons/';
 
 // URL de base pour les paroles hébergées sur GitHub
-const LYRICS_BASE_URL = 'https://raw.githubusercontent.com/CX-Banger/cx-muzik/main/lyrics';
+const LYRICS_BASE_URL = 'https://raw.githubusercontent.com/CX-Banger/cx-muzik/main/lyr';
 
 /* === Artistes avec couleurs personnalisées === */
 const artistsConfig = [
@@ -44,18 +44,18 @@ const artists = artistsConfig.map((config, i) => ({
   id: i + 1,
   name: config.name,
   bio: config.name,
-  photo: `${GITHUB_BASE_URL}/media/artistes/${i+1}.jpg`,
+  photo: `${GITHUB_BASE_URL}/op/pp/${i+1}.jpg`,
   bgColor: config.bgColor,
   bgColorHover: config.bgColorHover,
   tracks: trackTitles[i].map((title, j) => ({
     id: `son${j+1}`,
     title,
     src: `${SUPABASE_STORAGE_URL}artiste${i+1}/son${j+1}.mp3`,
-    cover: `${GITHUB_BASE_URL}/media/artiste${i+1}/cover${j+1}.jpg`
+    cover: `${GITHUB_BASE_URL}op/cv/artiste${i+1}/cover${j+1}.jpg`
   }))
 }));
 
-
+ 
 /* === Albums list (visuels + quelques sources publiques du second code) === */
 const albums = [
   { title:'Freestyle Pour Dieu', artist:'Synaï', image:'https://i.pinimg.com/236x/2c/23/17/2c2317fb606f8dad772f8b2a63dc1b07.jpg', audio:'https://hrzmagjjobctkfxayokt.supabase.co/storage/v1/object/public/sons/artiste%202/son2.mp3' },
