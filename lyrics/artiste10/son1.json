@@ -1,18 +1,20 @@
 {
-  "title": "Sparrows",
-  "artist": "Jason Gray",
+  "title": "A la Fontaine (DEMO)",
+  "artist": "LePag",
   "sections": [
     {
       "type": "verse",
       "number": 1,
       "lines": [
-        "You can't add a single day by worrying",
-        "You'll worry your life away",
-        "Oh don't worry your life away",
+        "Je suis une nouvelle création, lavé, renouvelé,",
+        "Le souffle de ton Esprit m’a relevé.",
+        "Tu as mis ta lumière au creux de mes ténèbres,",
+        "Ta Parole en moi coule, une source sans sécheresse.",
         "",
-        "You can't change a single thing by freaking out",
-        "It's just gonna close you in",
-        "Oh don't let the trouble win"
+        "Tu m’as donné la vie, plus qu’un simple battement,",
+        "Ta grâce coule en moi comme un fleuve puissant.",
+        "Je bois à la fontaine de ton salut,",
+        "Chaque jour, Jésus, je reviens vers toi, ému."
       ]
     },
     {
@@ -26,27 +28,30 @@
     {
       "type": "chorus",
       "lines": [
-        "La, lala, la la lala",
-        "If He can hold the world He can hold this moment",
-        "La, lala, la la lala",
-        "Not a field nor flower escapes His notice",
-        "Oh even the sparrow",
-        "Knows He holds tomorrow"
+        "Dans la tempête, je lève les yeux,",
+        "Vers toi, Seigneur, Roi des cieux.",
+        "Ta Parole est ma force, tu gardes le contrôle,",
+        "Même quand le monde chancelle, tu restes sur le trône.",
+        "",
+        "Je marcherai jusqu’au bout,",
+        "Par la foi, malgré tout.",
+        "Ta main me guide, ton amour me console,",
+        "Car ta Parole est ma force, et tu gardes le contrôle."
       ]
     },
     {
       "type": "verse",
       "number": 2,
       "lines": [
-        "Lean in and it's hard to miss",
-        "Everything can change",
-        "When you make it His",
-        "Oh He wants to carry it",
+        "Quand le jour s’éteint, que les vents se lèvent,",
+        "Je garde ta paix, ma foi se relève.",
+        "Même quand je chute, tu restes ma joie,",
+        "Mon rocher, mon refuge, mon seul Roi.",
         "",
-        "Carefree in the care of God",
-        "When you let it go",
-        "You'll find that He's enough",
-        "Oh you never leave His love"
+        "Même imparfait, j’élève mes mains,",
+        "Émerveillé par tes saints desseins.",
+        "Tu brises mes chaînes, tu changes ma vie,",
+        "Dans tes mains repose tout mon avenir."
       ]
     },
     {
@@ -59,34 +64,15 @@
     {
       "type": "chorus",
       "lines": [
-        "La, lala, la la lala",
-        "If He can hold the world He can hold this moment",
-        "La, lala, la la lala",
-        "Not a field nor flower escapes His notice",
-        "Oh even the sparrow",
-        "Knows He holds tomorrow"
-      ]
-    },
-    {
-      "type": "bridge",
-      "lines": [
-        "There's not a single star that's out of place",
-        "There's nothing broken He can't remake",
-        "If you long for hope when you're afraid",
-        "Oh look at the sparrow",
+        "Dans la tempête, je lève les yeux,",
+        "Vers toi, Seigneur, Roi des cieux.",
+        "Ta Parole est ma force, tu gardes le contrôle,",
+        "Même quand le monde chancelle, tu restes sur le trône.",
         "",
-        "Look at the sparrow"
-      ]
-    },
-    {
-      "type": "chorus",
-      "lines": [
-        "La, lala, la la lala",
-        "If He can hold the world He can hold this moment",
-        "La, lala, la la lala",
-        "Not a field nor flower escapes His notice",
-        "Oh even the sparrow",
-        "Knows He holds tomorrow"
+        "Je marcherai jusqu’au bout,",
+        "Par la foi, malgré tout.",
+        "Ta main me guide, ton amour me console,",
+        "Car ta Parole est ma force, et tu gardes le contrôle."
       ]
     }
   ]
