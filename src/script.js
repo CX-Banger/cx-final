@@ -13,8 +13,19 @@ const SUPABASE_STORAGE_URL = 'https://hrzmagjjobctkfxayokt.supabase.co/storage/v
 // URL de base pour les paroles hébergées sur GitHub
 const LYRICS_BASE_URL = 'https://raw.githubusercontent.com/CX-Banger/cx-muzik/main/lyrics';
 
-/* === Données artistes (basées sur ton premier code) === */
-const artistNames = ['NAN', 'Synaï', 'Elihem', 'Sara', 'Eilynn', 'Melohim','Tiim', 'Math', 'Raph'];
+/* === Artistes avec couleurs personnalisées === */
+const artistsConfig = [
+  { name: 'NAN', bgColor: '#2a1a1a', bgColorHover: '#fa6e2f' },
+  { name: 'Synaï', bgColor: '#1a2a3a', bgColorHover: '#383838' },
+  { name: 'Elihem', bgColor: '#1a3a2a', bgColorHover: '#2a6a4a' },
+  { name: 'Sara', bgColor: '#3a2a1a', bgColorHover: '#3635a0' },
+  { name: 'Eilynn', bgColor: '#2a1a3a', bgColorHover: '#383838' },
+  { name: 'Melohim', bgColor: '#1a3a3a', bgColorHover: '#383838' },
+  { name: 'Tiim', bgColor: '#3a3a1a', bgColorHover: '#f78c83' },
+  { name: 'Math', bgColor: '#2a3a1a', bgColorHover: '#383838' },
+  { name: 'Raph', bgColor: '#3a1a1a', bgColorHover: '#07b8a7' }
+];
+
 const trackTitles = [
   ['Olala', 'Obsédé', 'Etoile', 'Parapluie', 'Love Story', 'Bande', 'Epitre Au Monde #1', 'Mieux', 'Alchimie', 'Compassion', 'Génant', 'Techiyá', 'Kesse', 'Psaumes 151', 'Pourquoi', 'Dispo', 'En Tout Temps', 'Génération', 'Favelas', 'Chemin ft Elihem', 'Sans Effet', 'Victoire ft Eilynn'],
   ['YHWH', 'Freestyle Pour Dieu', 'Zinzin', 'Choisir Papa', 'Le Temps', 'Une Question...', 'Papa Yahweh ft Eilynn', 'Saisir les Bases', 'Dessin', 'Cri du Coeur ft Sara', 'Chargeur Plein', 'The King ft Elihem', 'Je t aime ft Sara', 'Muy Bonito ft Eilynn'],
@@ -27,16 +38,18 @@ const trackTitles = [
   ['Zone à danger', 'Raph2']
 ];
 
-const artists = artistNames.map((name,i)=>({
-  id:i+1,
-  name,
-  bio:`${name} `,
-  photo:`${GITHUB_BASE_URL}/media/artistes/${i+1}.jpg`,  // photo de profil depuis GitHub
-  tracks:trackTitles[i].map((title,j)=>({
-    id:`son${j+1}`,
+const artists = artistsConfig.map((config, i) => ({
+  id: i + 1,
+  name: config.name,
+  bio: config.name,
+  photo: `${GITHUB_BASE_URL}/media/artistes/${i+1}.jpg`,
+  bgColor: config.bgColor,
+  bgColorHover: config.bgColorHover,
+  tracks: trackTitles[i].map((title, j) => ({
+    id: `son${j+1}`,
     title,
-    src:`${SUPABASE_STORAGE_URL}/artiste${i+1}/son${j+1}.mp3`,  // audio depuis Supabase
-    cover:`${GITHUB_BASE_URL}/media/artiste${i+1}/cover${j+1}.jpg` // cover depuis GitHub
+    src: `${SUPABASE_STORAGE_URL}artiste${i+1}/son${j+1}.mp3`,
+    cover: `${GITHUB_BASE_URL}/media/artiste${i+1}/cover${j+1}.jpg`
   }))
 }));
 
@@ -122,11 +135,14 @@ function renderArtists(){
   artists.forEach(a=>{
     const card = document.createElement('div');
     card.className = 'artist-card';
+    card.style.background = a.bgColor;
     card.innerHTML = `
     <img src="${a.photo}" class="avatar" alt="${a.name}">
     <div class="artist-info"><h3>${a.name}</h3><p>${a.bio}</p></div>
     `;
 
+    card.addEventListener('mouseenter', ()=> { card.style.background = a.bgColorHover; });
+    card.addEventListener('mouseleave', ()=> { card.style.background = a.bgColor; });
     card.addEventListener('click', ()=> openArtist(a));
     artistsGrid.appendChild(card);
   });
