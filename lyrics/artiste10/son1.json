@@ -13,7 +13,7 @@
       ]
     },
     {
-      "type": "pre-chorus",
+      "type": "pre-refrain",
       "number": 1,
       "lines": [
         "Tu m’as donné la vie, plus qu’un simple battement,",
@@ -23,7 +23,7 @@
       ]
     },
     {
-      "type": "chorus",
+      "type": "refrain",
       "lines": [
         "Dans la tempête, je lève les yeux,",
         "Vers toi, Seigneur, Roi des cieux.",
@@ -47,27 +47,13 @@
       ]
     },
     {
-      "type": "pre-chorus",
+      "type": "pre-refrain",
       "number": 2,
       "lines": [
         "Même imparfait, j’élève mes mains,",
         "Émerveillé par tes saints desseins.",
         "Tu brises mes chaînes, tu changes ma vie,",
         "Dans tes mains repose tout mon avenir."
-      ]
-    },
-    {
-      "type": "chorus",
-      "lines": [
-        "Dans la tempête, je lève les yeux,",
-        "Vers toi, Seigneur, Roi des cieux.",
-        "Ta Parole est ma force, tu gardes le contrôle,",
-        "Même quand le monde chancelle, tu restes sur le trône.",
-        "",
-        "Je marcherai jusqu’au bout,",
-        "Par la foi, malgré tout.",
-        "Ta main me guide, ton amour me console,",
-        "Car ta Parole est ma force, et tu gardes le contrôle."
       ]
     }
   ]
