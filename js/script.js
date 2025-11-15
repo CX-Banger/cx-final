@@ -51,11 +51,11 @@ const artists = artistsConfig.map((config, i) => ({
     id: `son${j+1}`,
     title,
     src: `${SUPABASE_STORAGE_URL}artiste${i+1}/son${j+1}.mp3`,
-    cover: `${GITHUB_BASE_URL}op/cv/artiste${i+1}/cover${j+1}.jpg`
+    cover: `${GITHUB_BASE_URL}/op/cv/artiste${i+1}/cover${j+1}.jpg`
   }))
 }));
 
- 
+
 /* === Albums list (visuels + quelques sources publiques du second code) === */
 const albums = [
   { title:'Freestyle Pour Dieu', artist:'Synaï', image:'https://i.pinimg.com/236x/2c/23/17/2c2317fb606f8dad772f8b2a63dc1b07.jpg', audio:'https://hrzmagjjobctkfxayokt.supabase.co/storage/v1/object/public/sons/artiste%202/son2.mp3' },
@@ -154,14 +154,14 @@ function renderFeatured() {
   featuredDiv.innerHTML = '';
 
   const featuredAlbums = [
-    { title: "Zone à danger", artist: "Raph", cover: `${GITHUB_BASE_URL}/media/artiste9/cover1.jpg`, artistIndex: 8, trackIndex: 0 },
-    { title: "Sé ou épi mwen", artist: "Eilynn", cover: `${GITHUB_BASE_URL}/media/artiste5/cover11.jpg`, artistIndex: 4, trackIndex: 10 },
-    { title: "Muy Bonito ft Eilynn", artist: "Synaï", cover: `${GITHUB_BASE_URL}/media/artiste2/cover14.jpg`, artistIndex: 1, trackIndex: 13 },
-    { title: "The King ft Synaï", artist: "Elihem", cover: `${GITHUB_BASE_URL}/media/artiste3/cover6.jpg`, artistIndex: 2, trackIndex: 5 },
-    { title: "Je t aime ft Synaï", artist: "Sara", cover: `${GITHUB_BASE_URL}/media/artiste4/cover5.jpg`, artistIndex: 3, trackIndex: 4 },
-    { title: "Sans Effet", artist: "NAN", cover: `${GITHUB_BASE_URL}/media/artiste1/cover21.jpg`, artistIndex: 0, trackIndex: 20 },
-    { title: "Ma Carrière", artist: "Melohim", cover: `${GITHUB_BASE_URL}/media/artiste6/cover1.jpg`, artistIndex: 5, trackIndex: 0 },
-    { title: "Montres moi", artist: "Tiim", cover: `${GITHUB_BASE_URL}/media/artiste7/cover1.jpg`, artistIndex: 6, trackIndex: 0 }
+    { title: "Zone à danger", artist: "Raph", cover: `${GITHUB_BASE_URL}/op/cv/artiste9/cover1.jpg`, artistIndex: 8, trackIndex: 0 },
+    { title: "Sé ou épi mwen", artist: "Eilynn", cover: `${GITHUB_BASE_URL}/op/cv/artiste5/cover11.jpg`, artistIndex: 4, trackIndex: 10 },
+    { title: "Muy Bonito ft Eilynn", artist: "Synaï", cover: `${GITHUB_BASE_URL}/op/cv/artiste2/cover14.jpg`, artistIndex: 1, trackIndex: 13 },
+    { title: "The King ft Synaï", artist: "Elihem", cover: `${GITHUB_BASE_URL}/op/cv/artiste3/cover6.jpg`, artistIndex: 2, trackIndex: 5 },
+    { title: "Je t aime ft Synaï", artist: "Sara", cover: `${GITHUB_BASE_URL}/op/cv/artiste4/cover5.jpg`, artistIndex: 3, trackIndex: 4 },
+    { title: "Sans Effet", artist: "NAN", cover: `${GITHUB_BASE_URL}/op/cv/artiste1/cover21.jpg`, artistIndex: 0, trackIndex: 20 },
+    { title: "Ma Carrière", artist: "Melohim", cover: `${GITHUB_BASE_URL}/op/cv/artiste6/cover1.jpg`, artistIndex: 5, trackIndex: 0 },
+    { title: "Montres moi", artist: "Tiim", cover: `${GITHUB_BASE_URL}/op/cv/artiste7/cover1.jpg`, artistIndex: 6, trackIndex: 0 }
   ];
 
   featuredAlbums.forEach(album => {
@@ -524,7 +524,7 @@ if (heroArt) {
       title: 'Zone à danger',
       artist: 'Raph',
       src: 'https://hrzmagjjobctkfxayokt.supabase.co/storage/v1/object/public/sons/artiste9/son1.mp3',
-      thumb: `${GITHUB_BASE_URL}/media/artiste9/cover1.jpg`
+      thumb: `${GITHUB_BASE_URL}/op/cv/artiste9/cover1.jpg`
     };
     playlist = [obsedeSong];
     currentIndex = 0;
